@@ -38,8 +38,8 @@ namespace Scripts.UI
         {
             if (Initialized())
             {
-                manager.StartClient();
                 manager.networkAddress = connectAddress.text;
+                manager.StartClient();
             }
         }
 
