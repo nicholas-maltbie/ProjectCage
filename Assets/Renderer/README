@@ -1,0 +1,8 @@
+Notes on using URP for rendering 2d projects
+
+It seems to be much nicer than default rendering pipeline but we can always
+change between the two depending on what we need.
+
+Resource links:
+* Forum post - https://forum.unity.com/threads/2d-renderer-in-universal-render-pipeline-in-2019-3.829851/
+* Samples - https://github.com/Unity-Technologies/2d-renderer-samples
