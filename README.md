@@ -14,6 +14,7 @@ All of the members of our group working on the project
 * Joseph Mak
 * Nicholas Maltbie
 * Samuel Scherer
+* Timmy Buchanan
 * Zachary Scherer
 
 
