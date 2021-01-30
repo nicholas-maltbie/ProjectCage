@@ -11,6 +11,16 @@ namespace Scripts.Character
 
         public float runSpeed = 20.0f;
 
+        private Vector2 previousLastMovement;
+
+        public Vector2 lastMovement;
+
+        [Command]
+        public void CmdSetLastMovement(Vector2 movement)
+        {
+            lastMovement = movement;
+        }
+
         void Start()
         {
             body = GetComponent<Rigidbody2D>();
@@ -34,6 +44,12 @@ namespace Scripts.Character
                 movement = movement.magnitude > 1 ? movement.normalized : movement;
 
                 body.velocity = movement * runSpeed;
+
+                if (movement != previousLastMovement && movement.magnitude > 0)
+                {
+                    CmdSetLastMovement(movement);
+                }
+                previousLastMovement = movement;
             }
         }
     }
