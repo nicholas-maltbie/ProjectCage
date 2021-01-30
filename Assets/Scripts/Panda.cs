@@ -13,14 +13,14 @@ public class Panda : Animal
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             target = other.gameObject;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(target == other.gameObject)
+        if (target == other.gameObject)
         {
             target = null;
         }

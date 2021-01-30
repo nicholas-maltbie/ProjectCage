@@ -17,7 +17,7 @@ namespace Scripts.Navigation
         // Update is called once per frame
         void Update()
         {
-            if(target)
+            if (target)
             {
                 agent.SetDestination(target.transform.position);
                 Debug.Log("No navigation target.");
