@@ -7,9 +7,15 @@ namespace Scripts.Character
 {
     public class HoldObject : NetworkBehaviour
     {
-        public ItemLibrary itemLibrary;
+        public ItemLibrary worldItemLibrary;
+
+        public ItemLibrary heldItemLibrary;
 
         public Transform holdingTransform;
+
+        public Rigidbody2D playerRigidbody;
+
+        public float throwSpeed = 5.0f;
 
         [SyncVar(hook = nameof(OnChangeEquipment))]
         public Item heldItem;
@@ -17,6 +23,25 @@ namespace Scripts.Character
         public void OnChangeEquipment(Item oldItem, Item newItem)
         {
             StartCoroutine(ChangeItem(newItem));
+        }
+
+        [Command]
+        public void CmdYeetItem(Item yeet)
+        {
+            GameObject yeetedPrefab = worldItemLibrary.GetItem(yeet);
+            GameObject spawned = Instantiate(yeetedPrefab);
+            NetworkServer.Spawn(spawned);
+            Rigidbody2D thrown = spawned.GetComponent<Rigidbody2D>();
+            if (thrown != null)
+            {
+                Vector2 throwDir = new Vector2(1, 0);
+                if (playerRigidbody.velocity.magnitude > 0)
+                {
+                    throwDir = playerRigidbody.velocity.normalized;
+                }
+
+                thrown.velocity = throwDir * throwSpeed;
+            }
         }
 
         public IEnumerator ChangeItem(Item item)
@@ -29,7 +54,7 @@ namespace Scripts.Character
 
             if (item != Item.None && item != Item.Player)
             {
-                Instantiate(itemLibrary.GetItem(item), holdingTransform);
+                Instantiate(heldItemLibrary.GetItem(item), holdingTransform);
             }
         }
 
@@ -46,12 +71,14 @@ namespace Scripts.Character
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.Q) && heldItem != Item.None)
+            if (Input.GetKeyDown("Drop") && heldItem != Item.None)
+            {
+                if (ItemState.IsThrowableItem(this.heldItem))
+                {
+                    CmdYeetItem(this.heldItem);
+                }
                 CmdSetHeldItem(Item.None);
-            if (Input.GetKeyDown(KeyCode.E) && heldItem != Item.Bamboo)
-                CmdSetHeldItem(Item.Bamboo);
-            if (Input.GetKeyDown(KeyCode.R) && heldItem != Item.Fish)
-                CmdSetHeldItem(Item.Fish);
+            }
         }
     }
 }

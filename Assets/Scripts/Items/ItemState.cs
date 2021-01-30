@@ -5,6 +5,7 @@ namespace Scripts.Items
 {
     public enum Item
     {
+
         None    = 0,
         Bamboo  = 10,
         Steak   = 20,
@@ -15,6 +16,11 @@ namespace Scripts.Items
 
     public class ItemState : MonoBehaviour
     {
+        public static bool IsThrowableItem(Item item)
+        {
+            return item > Item.None && item < Item.Player;
+        }
+
         public Item item;
     }
 }

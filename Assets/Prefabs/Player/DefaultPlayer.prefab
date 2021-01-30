@@ -437,8 +437,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  itemLibrary: {fileID: 11400000, guid: b56c99d86e6bca746b8fa0dbf90d78bb, type: 2}
+  worldItemLibrary: {fileID: 11400000, guid: 3c25204d66dc09e4ebb98d83e2baa5d4, type: 2}
+  heldItemLibrary: {fileID: 11400000, guid: b56c99d86e6bca746b8fa0dbf90d78bb, type: 2}
   holdingTransform: {fileID: 6469051636576669088}
+  playerRigidbody: {fileID: 6641370716391044433}
+  throwSpeed: 5
   heldItem: 0
 --- !u!114 &-259793815591245304
 MonoBehaviour:
