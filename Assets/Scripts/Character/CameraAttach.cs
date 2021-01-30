@@ -14,7 +14,7 @@ namespace Scripts.Character
             if (isLocalPlayer)
             {
                 Camera.main.transform.parent = transform;
-                Camera.main.transform.position = new Vector3(0, 0, Camera.main.transform.position.z);
+                Camera.main.transform.localPosition = new Vector3(0, 0, Camera.main.transform.position.z);
             }
         }
         public override void OnStopClient()
