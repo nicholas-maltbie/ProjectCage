@@ -2744,9 +2744,9 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 0.6, y: 0.5, z: 0.6}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
@@ -29023,7 +29023,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.1}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
@@ -51645,6 +51645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneId
       value: 379859943
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647426001240235808, guid: 291cc5168fad3024b8c07dc45b4603b1,
+        type: 3}
+      propertyPath: m_AssetId
+      value: 291cc5168fad3024b8c07dc45b4603b1
       objectReference: {fileID: 0}
     - target: {fileID: 8647426001240235810, guid: 291cc5168fad3024b8c07dc45b4603b1,
         type: 3}
