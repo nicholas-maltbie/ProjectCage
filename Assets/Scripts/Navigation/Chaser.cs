@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-
 namespace Scripts.Navigation
 {
     public class Chaser : MonoBehaviour
@@ -8,7 +7,6 @@ namespace Scripts.Navigation
         public GameObject target;
         private NavMeshAgent agent;
         private bool stop;
-
         // Start is called before the first frame update
         void Start()
         {
@@ -16,7 +14,6 @@ namespace Scripts.Navigation
             agent.updateRotation = false;
             agent.updateUpAxis = false;
         }
-
         // Update is called once per frame
         void Update()
         {
@@ -27,7 +24,6 @@ namespace Scripts.Navigation
             }
             DebugDrawPath(agent.path.corners);
         }
-
         public static void DebugDrawPath(Vector3[] corners)
         {
             if (corners.Length < 2) { return; }
@@ -39,5 +35,4 @@ namespace Scripts.Navigation
             Debug.DrawLine(corners[0], corners[1], Color.red);
         }
     }
-
 }
