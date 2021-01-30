@@ -25,7 +25,7 @@ namespace Scripts.Character
                 return;
             }
             pickup.isBeingPickedUp = true;
-            
+
             // Destory the current item
             NetworkServer.Destroy(worldItem);
 

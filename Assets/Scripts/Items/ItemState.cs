@@ -6,12 +6,12 @@ namespace Scripts.Items
     public enum Item
     {
 
-        None    = 0,
-        Bamboo  = 10,
-        Steak   = 20,
-        Ham     = 30,
-        Fish    = 40,
-        Player  = 100
+        None = 0,
+        Bamboo = 10,
+        Steak = 20,
+        Ham = 30,
+        Fish = 40,
+        Player = 100
     }
 
     public class ItemState : MonoBehaviour

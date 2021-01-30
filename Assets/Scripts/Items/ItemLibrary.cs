@@ -10,7 +10,7 @@ namespace Scripts.Items
 
         public GameObject GetItem(Item item)
         {
-            foreach(ItemObject itemObj in items)
+            foreach (ItemObject itemObj in items)
             {
                 if (itemObj.itemId == item)
                 {
