@@ -13,7 +13,7 @@ namespace Scripts.Character
 
         private bool previousFlippedState;
 
-        private Vector2 previousMove = Vector2.zero;
+        public Vector2 previousMove = Vector2.zero;
 
         [SyncVar]
         private bool flippedState;

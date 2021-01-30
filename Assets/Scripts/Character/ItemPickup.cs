@@ -20,7 +20,7 @@ namespace Scripts.Character
 
             // set the pickup state of the item, no duplicating items
             Pickupable pickup = worldItem.GetComponent<Pickupable>();
-            if (pickup.isBeingPickedUp)
+            if (!pickup.CanPickup())
             {
                 return;
             }

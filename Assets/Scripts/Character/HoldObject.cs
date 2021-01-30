@@ -17,6 +17,8 @@ namespace Scripts.Character
 
         public float throwSpeed = 5.0f;
 
+        public float thrownCooldown = 0.1f;
+
         [SyncVar(hook = nameof(OnChangeEquipment))]
         public Item heldItem;
 
@@ -30,18 +32,21 @@ namespace Scripts.Character
         {
             GameObject yeetedPrefab = worldItemLibrary.GetItem(yeet);
             GameObject spawned = Instantiate(yeetedPrefab);
+            Pickupable pickup = spawned.GetComponent<Pickupable>();
+            pickup.pickupCooldown = thrownCooldown;
             NetworkServer.Spawn(spawned);
             Rigidbody2D thrown = spawned.GetComponent<Rigidbody2D>();
+            Vector2 throwDir = GetComponent<CharacterMovement>().lastMovement;
             if (thrown != null)
             {
-                Vector2 throwDir = new Vector2(1, 0);
                 if (playerRigidbody.velocity.magnitude > 0)
                 {
                     throwDir = playerRigidbody.velocity.normalized;
                 }
 
-                thrown.velocity = throwDir * throwSpeed;
+                thrown.velocity = throwDir * throwSpeed + playerRigidbody.velocity;
             }
+            spawned.transform.position = transform.position + new Vector3(throwDir.x, throwDir.y);
         }
 
         public IEnumerator ChangeItem(Item item)
@@ -71,7 +76,7 @@ namespace Scripts.Character
                 return;
             }
 
-            if (Input.GetKeyDown("Drop") && heldItem != Item.None)
+            if (Input.GetButtonDown("Drop") && heldItem != Item.None)
             {
                 if (ItemState.IsThrowableItem(this.heldItem))
                 {
