@@ -515,7 +515,7 @@ MonoBehaviour:
   playerRigidbody: {fileID: 6641370716391044433}
   itemThrowSpeed: 8
   playerThrowSpeed: 12
-  thrownCooldown: 0.1
+  itemPickupCooldown: 1
   heldItem: 0
   heldPlayerId: 0
   heldPlayer: {fileID: 0}

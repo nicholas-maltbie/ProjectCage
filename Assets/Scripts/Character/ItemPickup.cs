@@ -22,7 +22,7 @@ namespace Scripts.Character
 
             // set the pickup state of the item, no duplicating items
             Pickupable pickup = worldItem.GetComponent<Pickupable>();
-            if (!pickup.CanPickup())
+            if (!pickup.CanPickup(this.netId))
             {
                 return;
             }

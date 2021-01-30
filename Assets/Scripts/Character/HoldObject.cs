@@ -19,7 +19,7 @@ namespace Scripts.Character
 
         public float playerThrowSpeed = 12.0f;
 
-        public float thrownCooldown = 0.1f;
+        public float itemPickupCooldown = 3.0f;
 
         [SyncVar(hook = nameof(OnChangeEquipment))]
         public Item heldItem;
@@ -78,7 +78,7 @@ namespace Scripts.Character
             GameObject spawned = Instantiate(yeetedPrefab, targetPosition, Quaternion.identity);
             Pickupable pickup = spawned.GetComponent<Pickupable>();
 
-            pickup.pickupCooldown = thrownCooldown;
+            pickup.SetCooldown(itemPickupCooldown, this.netId);
             NetworkServer.Spawn(spawned);
             Rigidbody2D thrown = spawned.GetComponent<Rigidbody2D>();
             if (thrown != null)
