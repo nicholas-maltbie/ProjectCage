@@ -196,6 +196,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   target: {fileID: 0}
+  favoriteFood: 10
   initialFacingDirection: -1
 --- !u!58 &8647426001240235809
 CircleCollider2D:

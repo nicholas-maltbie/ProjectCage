@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -6705416907446956954}
   m_Layer: 0
   m_Name: Ham_World
-  m_TagString: Untagged
+  m_TagString: Food Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1264512073
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6a348abbff165bf48b81d15ff1d70c1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

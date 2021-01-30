@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: -8266540809338302683}
   m_Layer: 0
   m_Name: Fish_World
-  m_TagString: Untagged
+  m_TagString: Food Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +137,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1264512073
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1915776564401465818, guid: 0527fb7931798ce4e8b1e99d0c9cec7c,
     type: 3}

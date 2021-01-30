@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Scripts.Character;
+using Scripts.Items;
+
 public class Panda : Animal
 {
     protected override void Start()
@@ -11,12 +14,16 @@ public class Panda : Animal
     {
         base.Update();
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            target = other.gameObject;
-        }
+
+            var isPlayerHoldingFood = other.CompareTag("Player") && other.GetComponent<HoldObject>().heldItem == favoriteFood;
+            var isFoodItem = other.CompareTag("Food Item") && other.GetComponent<ItemState>().item == favoriteFood;
+            if ( isPlayerHoldingFood || isFoodItem )
+            {
+                target = other.gameObject;
+            }
+        
     }
     private void OnTriggerExit2D(Collider2D other)
     {
