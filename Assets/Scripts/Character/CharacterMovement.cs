@@ -1,4 +1,5 @@
 using Mirror;
+using Mirror.Experimental;
 using UnityEngine;
 
 namespace Scripts.Character
@@ -19,6 +20,7 @@ namespace Scripts.Character
         [SyncVar(hook = nameof(OnChangeHeldState))]
         public CharacterHeld heldState = CharacterHeld.Normal;
 
+        [SyncVar]
         public CharacterMovement holdingCharacterController;
 
         public float stopSlidingSpeed = 0.01f;
@@ -47,9 +49,6 @@ namespace Scripts.Character
                     rigidbodyEnabled = true;
                     break;
                 case CharacterHeld.Thrown:
-                    colliderEnabled = true;
-                    rigidbodyEnabled = true;
-                    break;
                 case CharacterHeld.Normal:
                     colliderEnabled = true;
                     rigidbodyEnabled = true;
@@ -84,16 +83,24 @@ namespace Scripts.Character
                 horizontal = Input.GetAxisRaw("Horizontal");
                 vertical = Input.GetAxisRaw("Vertical");
             }
+            if (!isLocalPlayer)
+            {
+                if (this.heldState == CharacterHeld.Held)
+                {
+                    this.GetComponent<CharacterAnimator>().spriteRenderer.enabled = false;
+                }
+                else
+                {
+                    this.GetComponent<CharacterAnimator>().spriteRenderer.enabled = true;
+                }
+            }
         }
 
         void LateUpdate()
         {
-            if (heldState == CharacterHeld.Held)
+            if ((isLocalPlayer || (isDebugPlayer && isServer)) && heldState == CharacterHeld.Held && holder != null)
             {
-                if (holder != null)
-                {
-                    transform.position = holder.transform.position;
-                }
+                transform.position = holder.transform.position;
             }
         }
 

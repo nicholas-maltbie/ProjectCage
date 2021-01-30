@@ -25,3 +25,6 @@ MonoBehaviour:
   - itemId: 20
     gameObject: {fileID: 3573704801073380742, guid: e8134c097afda76409aec6725e37daa1,
       type: 3}
+  - itemId: 100
+    gameObject: {fileID: 3109514383311896580, guid: 4144922472cd30f48b6b0bbf797e0975,
+      type: 3}

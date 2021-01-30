@@ -96,6 +96,12 @@ namespace Scripts.Character
             {
                 Instantiate(heldItemLibrary.GetItem(item), holdingTransform);
             }
+            if (item == Item.Player)
+            {
+                GameObject heldItem = Instantiate(heldItemLibrary.GetItem(item), holdingTransform);
+                // Link the animating renderer and the normal sprite controller
+                heldItem.GetComponent<HeldCharacterSkin>().linkedCharacter = heldPlayer.GetComponent<CharacterSkin>();
+            }
         }
 
         [Command]
@@ -144,6 +150,12 @@ namespace Scripts.Character
             {
                 return;
             }
+            CharacterMovement currentMovement = GetComponent<CharacterMovement>();;
+            // Can only pickup player if we are also not held
+            if (currentMovement.heldState != CharacterHeld.Normal)
+            {
+                return;
+            }
             // Set the held state of the other characer to held
             otherMovement.heldState = CharacterHeld.Held;
             // Set their held position as our holding position
@@ -152,7 +164,7 @@ namespace Scripts.Character
             heldPlayer = otherPlayer;
             heldItem = Item.Player;
             // Tell the other player we are carrying them
-            otherMovement.holdingCharacterController = GetComponent<CharacterMovement>();
+            otherMovement.holdingCharacterController = currentMovement;
         }
 
         public void Update()

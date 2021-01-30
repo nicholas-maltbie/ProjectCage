@@ -33113,6 +33113,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 281299507673297783, guid: 7a828d152b5ec744c85740bc536b1b55,
+        type: 3}
+      propertyPath: selectedSkin
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5754011974828825630, guid: 7a828d152b5ec744c85740bc536b1b55,
         type: 3}
       propertyPath: isDebugPlayer
@@ -33126,7 +33131,7 @@ PrefabInstance:
     - target: {fileID: 6641370716391044434, guid: 7a828d152b5ec744c85740bc536b1b55,
         type: 3}
       propertyPath: m_Name
-      value: DefaultPlayer
+      value: TestPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 6641370716391044439, guid: 7a828d152b5ec744c85740bc536b1b55,
         type: 3}
