@@ -67,18 +67,21 @@ namespace Scripts.Character
         private void TriggerEnterOrStay(Collider2D other)
         {
             var identity = other.GetComponent<NetworkIdentity>();
-            if (isLocalPlayer && identity != null && identity.isActiveAndEnabled)
+            if (isLocalPlayer)
             {
+                if (identity != null && identity.isActiveAndEnabled)
+                {
+                    if (other.gameObject.GetComponent<Pickupable>() != null)
+                    {
+                        CmdPickupItem(other.gameObject);
+                    }
+                    else if (other.gameObject.GetComponent<PickupableRadius>() != null)
+                    {
+                        CmdPickupItem(other.GetComponent<PickupableRadius>().pickupReference.gameObject);
+                    }
+                }
                 var playerPickup = other.gameObject.GetComponent<PlayerPickupRadius>();
-                if (other.gameObject.GetComponent<Pickupable>() != null)
-                {
-                    CmdPickupItem(other.gameObject);
-                }
-                else if (other.gameObject.GetComponent<PickupableRadius>() != null)
-                {
-                    CmdPickupItem(other.GetComponent<PickupableRadius>().pickupReference.gameObject);
-                }
-                else if (other.gameObject.GetComponent<PlayerPickupRadius>() != null)
+                if (other.gameObject.GetComponent<PlayerPickupRadius>() != null)
                 {
                     focusedPlayer = playerPickup.pickupReference;
                 }
