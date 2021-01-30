@@ -43,7 +43,7 @@ namespace Scripts.Character
                 {
                     CmdPickupItem(other.gameObject);
                 }
-                if (other.gameObject.GetComponent<CharacterMovement>() != null)
+                if (other.gameObject.GetComponent<CharacterMovement>() != null && GetComponent<CharacterMovement>().heldState == CharacterHeld.Normal)
                 {
                     GetComponent<HoldObject>().CmdPickupAnotherPlayer(other.gameObject);
                 }

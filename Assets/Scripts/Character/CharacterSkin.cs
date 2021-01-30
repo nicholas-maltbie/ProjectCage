@@ -19,7 +19,7 @@ namespace Scripts.Character
 
         void Update()
         {
-            characterAnimator.runtimeAnimatorController = animatorSkins[selectedSkin];
+            characterAnimator.runtimeAnimatorController = animatorSkins[selectedSkin % animatorSkins.Length];
         }
     }
 }

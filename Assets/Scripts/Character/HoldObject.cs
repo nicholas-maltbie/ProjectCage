@@ -25,7 +25,10 @@ namespace Scripts.Character
         public Item heldItem;
 
         [SyncVar]
-        public CharacterSkin heldCharacterSkin;
+        public uint heldPlayerId;
+
+        [SyncVar]
+        public GameObject heldPlayer;
 
         public void Start()
         {
@@ -96,11 +99,11 @@ namespace Scripts.Character
             {
                 Instantiate(heldItemLibrary.GetItem(item), holdingTransform);
             }
-            if (item == Item.Player)
+            if (item == Item.Player && heldPlayerId != NetworkClient.connection.identity.netId)
             {
                 GameObject heldItem = Instantiate(heldItemLibrary.GetItem(item), holdingTransform);
                 // Link the animating renderer and the normal sprite controller
-                heldItem.GetComponent<HeldCharacterSkin>().linkedCharacter = heldCharacterSkin;
+                heldItem.GetComponent<HeldCharacterSkin>().linkedCharacter = heldPlayer.GetComponent<CharacterSkin>();
             }
         }
 
@@ -122,7 +125,7 @@ namespace Scripts.Character
             // Set our held item as none
             heldItem = Item.None;
             // Reset held player
-            heldCharacterSkin = null;
+            heldPlayer = null;
             // Get the new position and velocity of thrown player
             Vector2 throwDir = GetThrowDirection();
             Vector2 targetPosition = GetThrowPosition(throwDir);
@@ -161,10 +164,13 @@ namespace Scripts.Character
             // Set their held position as our holding position
             otherMovement.holder = gameObject;
             // Save that we are holding that player
-            heldCharacterSkin = otherPlayer.GetComponent<CharacterSkin>();
-            heldItem = Item.Player;
+            heldPlayer = otherPlayer;
+            // Save the held playerId
+            heldPlayerId = otherPlayer.GetComponent<NetworkIdentity>().netId;
             // Tell the other player we are carrying them
             otherMovement.holdingCharacterController = currentMovement;
+            // Update held item state
+            heldItem = Item.Player;
         }
 
         public void Update()
@@ -183,7 +189,7 @@ namespace Scripts.Character
                 }
                 if (this.heldItem == Item.Player)
                 {
-                    CmdYeetPlayer(this.heldCharacterSkin.gameObject);
+                    CmdYeetPlayer(this.heldPlayer);
                 }
             }
         }
