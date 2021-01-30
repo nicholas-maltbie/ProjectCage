@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0
   target: {fileID: -4841620450625344095}
   clientAuthority: 0
   syncVelocity: 1

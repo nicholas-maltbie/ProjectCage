@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c7a34209591c84f83583e52d4fa6e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupCooldown: 0
   isBeingPickedUp: 0
 --- !u!50 &-6228864193597603884
 Rigidbody2D:
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0
   target: {fileID: -6228864193597603884}
   clientAuthority: 0
   syncVelocity: 1
