@@ -27,7 +27,7 @@ namespace Scripts.Character
                 yield return null;
             }
 
-            if (item != Item.None)
+            if (item != Item.None && item != Item.Player)
             {
                 Instantiate(itemLibrary.GetItem(item), holdingTransform);
             }

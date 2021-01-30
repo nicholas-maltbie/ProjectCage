@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: -448334396680821251}
   - component: {fileID: 281299507673297783}
   - component: {fileID: 7407842451782846274}
+  - component: {fileID: -259793815591245304}
   m_Layer: 0
   m_Name: DefaultPlayer
   m_TagString: Untagged
@@ -438,4 +439,18 @@ MonoBehaviour:
   syncInterval: 0.1
   itemLibrary: {fileID: 11400000, guid: b56c99d86e6bca746b8fa0dbf90d78bb, type: 2}
   holdingTransform: {fileID: 6469051636576669088}
-  equippedItem: 0
+  heldItem: 0
+--- !u!114 &-259793815591245304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6641370716391044434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 721c61a84438ca541adf218c63f2ddc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1

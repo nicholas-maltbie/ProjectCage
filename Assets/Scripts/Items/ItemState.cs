@@ -9,7 +9,8 @@ namespace Scripts.Items
         Bamboo  = 10,
         Steak   = 20,
         Ham     = 30,
-        Fish    = 40
+        Fish    = 40,
+        Player  = 100
     }
 
     public class ItemState : MonoBehaviour
