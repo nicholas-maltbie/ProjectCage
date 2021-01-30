@@ -20,7 +20,11 @@ namespace Scripts.Navigation
         // Update is called once per frame
         void Update()
         {
-            agent.SetDestination(target.transform.position);
+            if(target)
+            {
+                agent.SetDestination(target.transform.position);
+                Debug.Log("No navigation target.");
+            }
             DebugDrawPath(agent.path.corners);
         }
 
