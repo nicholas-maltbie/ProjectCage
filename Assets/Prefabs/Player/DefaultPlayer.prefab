@@ -324,6 +324,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   runSpeed: 5
+  lastMovement: {x: 0, y: 0}
 --- !u!114 &2011298788433486666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +373,7 @@ MonoBehaviour:
   animationController: {fileID: 1174752075185786358}
   spriteRenderer: {fileID: 4527617640161776108}
   isRightFlipped: 1
+  previousMove: {x: 0, y: 0}
 --- !u!114 &281299507673297783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,3 +392,5 @@ MonoBehaviour:
   animatorSkins:
   - {fileID: 9100000, guid: efd281df7caeb1645842e7c5f52d8f4b, type: 2}
   - {fileID: 9100000, guid: 83f14a2f6ce2d3d4fa9c5b75a0a031c5, type: 2}
+  - {fileID: 9100000, guid: e7feda8e23040bd4d84eb267076a8775, type: 2}
+  - {fileID: 9100000, guid: cf34ec566b5052c43a4c3b668ad54abb, type: 2}
