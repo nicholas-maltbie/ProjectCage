@@ -39,7 +39,11 @@ namespace Scripts.Character
             Vector2 targetPosition = transform.position + new Vector3(throwDir.x, throwDir.y);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, throwDir, throwDir.magnitude, ~(1 << LayerMask.NameToLayer("Player")));
 
-            GameObject spawned = Instantiate(yeetedPrefab);
+            if (hit)
+            {
+                targetPosition = transform.position;
+            }
+            GameObject spawned = Instantiate(yeetedPrefab, targetPosition, Quaternion.identity);
             Pickupable pickup = spawned.GetComponent<Pickupable>();
 
             pickup.pickupCooldown = thrownCooldown;
@@ -49,11 +53,6 @@ namespace Scripts.Character
             {
                 thrown.velocity = throwDir * throwSpeed + playerRigidbody.velocity;
             }
-            if (hit)
-            {
-                targetPosition = transform.position;
-            }
-            spawned.transform.position = targetPosition;
         }
 
         public IEnumerator ChangeItem(Item item)
