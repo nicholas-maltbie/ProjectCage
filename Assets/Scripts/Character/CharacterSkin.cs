@@ -14,7 +14,7 @@ namespace Scripts.Character
 
         public override void OnStartServer()
         {
-            selectedSkin = ((int)this.netId) % animatorSkins.Length;
+            selectedSkin = ((int)this.netId - 1) % animatorSkins.Length;
         }
 
         void Update()

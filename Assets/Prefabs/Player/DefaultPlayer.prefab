@@ -425,6 +425,8 @@ MonoBehaviour:
   animatorSkins:
   - {fileID: 9100000, guid: efd281df7caeb1645842e7c5f52d8f4b, type: 2}
   - {fileID: 9100000, guid: 83f14a2f6ce2d3d4fa9c5b75a0a031c5, type: 2}
+  - {fileID: 9100000, guid: e7feda8e23040bd4d84eb267076a8775, type: 2}
+  - {fileID: 9100000, guid: efd281df7caeb1645842e7c5f52d8f4b, type: 2}
 --- !u!114 &7407842451782846274
 MonoBehaviour:
   m_ObjectHideFlags: 0
