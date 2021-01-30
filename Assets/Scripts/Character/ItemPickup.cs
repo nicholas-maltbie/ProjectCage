@@ -7,6 +7,8 @@ namespace Scripts.Character
     [RequireComponent(typeof(HoldObject))]
     public class ItemPickup : NetworkBehaviour
     {
+        public GameObject focusedPlayer;
+
         [Command]
         public void CmdPickupItem(GameObject worldItem)
         {
@@ -43,9 +45,21 @@ namespace Scripts.Character
                 {
                     CmdPickupItem(other.gameObject);
                 }
-                if (other.gameObject.GetComponent<CharacterMovement>() != null && GetComponent<CharacterMovement>().heldState == CharacterHeld.Normal)
+                // if (other.gameObject.GetComponent<CharacterMovement>() != null && GetComponent<CharacterMovement>().heldState == CharacterHeld.Normal)
+                // {
+                //     GetComponent<HoldObject>().CmdPickupAnotherPlayer(other.gameObject);
+                // }
+            }
+        }
+
+        public void OnTriggerExit2D(Collider2D other)
+        {
+            if (isLocalPlayer)
+            {
+                var playerPickup = other.gameObject.GetComponent<PlayerPickupRadius>();
+                if (playerPickup != null && playerPickup.pickupReference == focusedPlayer)
                 {
-                    GetComponent<HoldObject>().CmdPickupAnotherPlayer(other.gameObject);
+                    focusedPlayer = null;
                 }
             }
         }
@@ -54,6 +68,7 @@ namespace Scripts.Character
         {
             if (isLocalPlayer)
             {
+                var playerPickup = other.gameObject.GetComponent<PlayerPickupRadius>();
                 if (other.gameObject.GetComponent<Pickupable>() != null)
                 {
                     CmdPickupItem(other.gameObject);
@@ -61,6 +76,10 @@ namespace Scripts.Character
                 else if (other.gameObject.GetComponent<PickupableRadius>() != null)
                 {
                     CmdPickupItem(other.GetComponent<PickupableRadius>().pickupReference.gameObject);
+                }
+                else if (other.gameObject.GetComponent<PlayerPickupRadius>() != null)
+                {
+                    focusedPlayer = playerPickup.pickupReference;
                 }
             }
         }

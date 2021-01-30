@@ -139,38 +139,46 @@ namespace Scripts.Character
             }
         }
 
+        public IEnumerator PickupAnotherPlayerCoroutine()
+        {
+            CharacterMovement currentMovement = GetComponent<CharacterMovement>();
+            CharacterMovement otherMovement = heldPlayer.GetComponent<CharacterMovement>();
+            // Set the held state of the other characer to held
+            otherMovement.heldState = CharacterHeld.Held;
+            // Set their held position as our holding position
+            otherMovement.holder = gameObject;
+            // Tell the other player we are carrying them
+            otherMovement.holdingCharacterController = currentMovement;
+            yield return null;
+            // Update held item state
+            heldItem = Item.Player;
+        }
+
         [Command]
         public void CmdPickupAnotherPlayer(GameObject otherPlayer)
         {
+            CharacterMovement otherMovement = otherPlayer.GetComponent<CharacterMovement>();
+            CharacterMovement currentMovement = GetComponent<CharacterMovement>();
             // Make sure player isn't holding anything
             if (heldItem != Item.None)
             {
                 return;
             }
-            CharacterMovement otherMovement = otherPlayer.GetComponent<CharacterMovement>();
             // Only pickup other player if they are not already held
             if (otherMovement.heldState != CharacterHeld.Normal)
             {
                 return;
             }
-            CharacterMovement currentMovement = GetComponent<CharacterMovement>();;
             // Can only pickup player if we are also not held
             if (currentMovement.heldState != CharacterHeld.Normal)
             {
                 return;
             }
-            // Set the held state of the other characer to held
-            otherMovement.heldState = CharacterHeld.Held;
-            // Set their held position as our holding position
-            otherMovement.holder = gameObject;
             // Save that we are holding that player
             heldPlayer = otherPlayer;
             // Save the held playerId
             heldPlayerId = otherPlayer.GetComponent<NetworkIdentity>().netId;
-            // Tell the other player we are carrying them
-            otherMovement.holdingCharacterController = currentMovement;
-            // Update held item state
-            heldItem = Item.Player;
+            StartCoroutine(PickupAnotherPlayerCoroutine());
         }
 
         public void Update()
@@ -179,6 +187,8 @@ namespace Scripts.Character
             {
                 return;
             }
+
+            ItemPickup itemPickup = GetComponent<ItemPickup>();
 
             if (Input.GetButtonDown("Drop") && heldItem != Item.None)
             {
@@ -191,6 +201,10 @@ namespace Scripts.Character
                 {
                     CmdYeetPlayer(this.heldPlayer);
                 }
+            }
+            if (Input.GetButtonDown("Drop") && itemPickup.focusedPlayer != null)
+            {
+                CmdPickupAnotherPlayer(itemPickup.focusedPlayer);
             }
         }
     }
