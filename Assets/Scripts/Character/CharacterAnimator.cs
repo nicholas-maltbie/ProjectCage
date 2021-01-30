@@ -3,14 +3,11 @@ using UnityEngine;
 
 namespace Scripts.Character
 {
-    [RequireComponent(typeof(Rigidbody2D))]
-    [RequireComponent(typeof(Animator))]
-    [RequireComponent(typeof(SpriteRenderer))]
     public class CharacterAnimator : NetworkBehaviour
     {
-        private Rigidbody2D body;
-        private Animator animationController;
-        private SpriteRenderer spriteRenderer;
+        public Rigidbody2D body;
+        public Animator animationController;
+        public SpriteRenderer spriteRenderer;
 
         public bool isRightFlipped;
 
@@ -25,13 +22,6 @@ namespace Scripts.Character
         public void CmdSetFlippedState(bool flippedState)
         {
             this.flippedState = flippedState;
-        }
-
-        void Start()
-        {
-            body = GetComponent<Rigidbody2D>();
-            animationController = GetComponent<Animator>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         void Update()
