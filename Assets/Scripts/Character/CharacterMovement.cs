@@ -31,9 +31,9 @@ namespace Scripts.Character
             {
                 Vector2 movement = new Vector2(horizontal, vertical);
                 // Make sure the vector is not larger than 1
-                movement = movement.magnitude > 1 ? movement / movement.magnitude : movement;
+                movement = movement.magnitude > 1 ? movement.normalized : movement;
 
-                body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+                body.velocity = movement * runSpeed;
             }
         }
     }
