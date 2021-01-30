@@ -1,13 +1,13 @@
+using Mirror;
 using UnityEngine;
 
 namespace Scripts.Character
 {
-   public class CharacterMovement : MonoBehaviour
+   public class CharacterMovement : NetworkBehaviour
    {
       private Rigidbody2D body;
       private float horizontal;
       private float vertical;
-      private float moveLimiter = 0.7f;
 
       public float runSpeed = 20.0f;
 
@@ -18,21 +18,23 @@ namespace Scripts.Character
 
       void Update()
       {
-         // Gives a value between -1 and 1
-         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
-         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+         if (isLocalPlayer)
+         {
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
+         }
       }
 
       void FixedUpdate()
       {
-         if (horizontal != 0 && vertical != 0) // Check for diagonal movement
+         if (isLocalPlayer)
          {
-            // limit movement speed diagonally, so you move at 70% speed
-            horizontal *= moveLimiter;
-            vertical *= moveLimiter;
-         } 
+            Vector2 movement = new Vector2(horizontal, vertical);
+            // Make sure the vector is not larger than 1
+            movement = movement.magnitude > 1 ? movement / movement.magnitude : movement;
 
-         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+            body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+         }
       }
    }
 }
