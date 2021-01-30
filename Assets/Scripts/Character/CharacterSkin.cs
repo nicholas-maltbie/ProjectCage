@@ -10,7 +10,7 @@ namespace Scripts.Character
         public RuntimeAnimatorController[] animatorSkins;
 
         [SyncVar]
-        private int selectedSkin = 0;
+        public int selectedSkin = 0;
 
         public override void OnStartServer()
         {
@@ -19,7 +19,7 @@ namespace Scripts.Character
 
         void Update()
         {
-            characterAnimator.runtimeAnimatorController = animatorSkins[selectedSkin];
+            characterAnimator.runtimeAnimatorController = animatorSkins[selectedSkin % animatorSkins.Length];
         }
     }
 }

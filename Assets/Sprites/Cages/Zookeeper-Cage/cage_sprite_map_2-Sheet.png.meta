@@ -1,31 +1,37 @@
 fileFormatVersion: 2
-guid: bd50ffc215199fd43b2f7a557aee1004
+guid: fdaee9fcde97c9f47a621e7308807ef1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -391518458246632338
-    second: MoveLeft_1
+      213: 9214208616803701795
+    second: cage_sprite_map_2-Sheet_0
   - first:
-      213: -617828285651997465
-    second: MoveLeft_2
+      213: 5696166883423433550
+    second: cage_sprite_map_2-Sheet_1
   - first:
-      213: 7188927696640354029
-    second: ForwardIdle
+      213: 425955635879129931
+    second: cage_sprite_map_2-Sheet_2
   - first:
-      213: -3108025915955643371
-    second: ForwardIdle_2
+      213: -6307622985119619690
+    second: cage_sprite_map_2-Sheet_3
   - first:
-      213: -4545383689773751617
-    second: MoveUp_1
+      213: 5816685303007939329
+    second: cage_sprite_map_2-Sheet_4
   - first:
-      213: -8317271256241006759
-    second: MoveUp_2
+      213: 5183805810817633273
+    second: cage_sprite_map_2-Sheet_5
   - first:
-      213: 2788872823661102619
-    second: MoveDown_1
+      213: -5828812251984693499
+    second: cage_sprite_map_2-Sheet_6
   - first:
-      213: -5705038584999951439
-    second: MoveDown_2
+      213: -1952130093123765566
+    second: cage_sprite_map_2-Sheet_7
+  - first:
+      213: -3144690785719739591
+    second: cage_sprite_map_2-Sheet_8
+  - first:
+      213: -5690467231293534430
+    second: cage_sprite_map_2-Sheet_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -135,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MoveLeft_1
+      name: cage_sprite_map_2-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,20 +149,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6c633d590c019af0800000000000000
-      internalID: -391518458246632338
+      spriteID: 3249de20be17fdf70800000000000000
+      internalID: 9214208616803701795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoveLeft_2
+      name: cage_sprite_map_2-Sheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -164,20 +170,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ec268592780d67f0800000000000000
-      internalID: -617828285651997465
+      spriteID: e433cc3d999dc0f40800000000000000
+      internalID: 5696166883423433550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForwardIdle
+      name: cage_sprite_map_2-Sheet_2
       rect:
         serializedVersion: 2
         x: 128
@@ -185,20 +191,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de6273ac6a334c360800000000000000
-      internalID: 7188927696640354029
+      spriteID: b43b6aed46c49e500800000000000000
+      internalID: 425955635879129931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForwardIdle_2
+      name: cage_sprite_map_2-Sheet_3
       rect:
         serializedVersion: 2
         x: 192
@@ -206,20 +212,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51c71ce75e21ed4d0800000000000000
-      internalID: -3108025915955643371
+      spriteID: 6952bd27052d678a0800000000000000
+      internalID: -6307622985119619690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoveUp_1
+      name: cage_sprite_map_2-Sheet_4
       rect:
         serializedVersion: 2
         x: 256
@@ -227,20 +233,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb26e2bdd9d8be0c0800000000000000
-      internalID: -4545383689773751617
+      spriteID: 10b0608077409b050800000000000000
+      internalID: 5816685303007939329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoveUp_2
+      name: cage_sprite_map_2-Sheet_5
       rect:
         serializedVersion: 2
         x: 320
@@ -248,20 +254,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9571037fbdd139c80800000000000000
-      internalID: -8317271256241006759
+      spriteID: 9fb04628be390f740800000000000000
+      internalID: 5183805810817633273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoveDown_1
+      name: cage_sprite_map_2-Sheet_6
       rect:
         serializedVersion: 2
         x: 384
@@ -269,20 +275,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b168f0a9e0114b620800000000000000
-      internalID: 2788872823661102619
+      spriteID: 507f102a326eb1fa0800000000000000
+      internalID: -5828812251984693499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoveDown_2
+      name: cage_sprite_map_2-Sheet_7
       rect:
         serializedVersion: 2
         x: 448
@@ -290,14 +296,56 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b34e2f22a1a3d0b0800000000000000
-      internalID: -5705038584999951439
+      spriteID: 2caf10ce504a8e4e0800000000000000
+      internalID: -1952130093123765566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cage_sprite_map_2-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93b1bb44460db54d0800000000000000
+      internalID: -3144690785719739591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cage_sprite_map_2-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f8fb8d3366701b0800000000000000
+      internalID: -5690467231293534430
       vertices: []
       indices: 
       edges: []

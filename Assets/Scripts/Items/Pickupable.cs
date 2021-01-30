@@ -1,4 +1,4 @@
-
+using Mirror;
 using UnityEngine;
 
 namespace Scripts.Items
@@ -6,12 +6,15 @@ namespace Scripts.Items
     [RequireComponent(typeof(ItemState))]
     public class Pickupable : MonoBehaviour
     {
-        public float pickupCooldown;
+        public uint lastToPickup;
+
+        private float pickupCooldown;
 
         public bool isBeingPickedUp;
 
-        public void SetCooldown(float cooldown)
+        public void SetCooldown(float cooldown, uint clientId)
         {
+            this.lastToPickup = clientId;
             this.pickupCooldown = cooldown;
             Collider2D collider = GetComponent<Collider2D>();
             // if (collider != null)
@@ -20,9 +23,9 @@ namespace Scripts.Items
             // }
         }
 
-        public bool CanPickup()
+        public bool CanPickup(uint clientId)
         {
-            return !isBeingPickedUp && pickupCooldown <= 0;
+            return !isBeingPickedUp && (clientId != lastToPickup || pickupCooldown <= 0);
         }
 
         public void LateUpdate()

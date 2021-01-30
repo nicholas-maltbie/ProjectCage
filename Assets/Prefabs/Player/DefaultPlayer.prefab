@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &922544289498943637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5659150470655647387}
+  - component: {fileID: 6184690167976640221}
+  - component: {fileID: 8080638127508205774}
+  m_Layer: 0
+  m_Name: PickupRadius
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5659150470655647387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922544289498943637}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6641370716391044439}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6184690167976640221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922544289498943637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ebf4e5bd136234a816813ac3df2f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupReference: {fileID: 6641370716391044434}
+--- !u!58 &8080638127508205774
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922544289498943637}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &1723053180006790292
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +307,7 @@ Transform:
   - {fileID: 3398127787815788957}
   - {fileID: 4549541711008431590}
   - {fileID: 6469051636576669088}
+  - {fileID: 5659150470655647387}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -356,6 +418,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  thrownCooldown: 0
+  holder: {fileID: 0}
+  heldState: 2
+  holdingCharacterController: {fileID: 0}
+  stopSlidingSpeed: 0.01
+  isDebugPlayer: 0
   runSpeed: 5
   lastMovement: {x: 0, y: 0}
 --- !u!114 &2011298788433486666
@@ -406,7 +474,6 @@ MonoBehaviour:
   animationController: {fileID: 1174752075185786358}
   spriteRenderer: {fileID: 4527617640161776108}
   isRightFlipped: 1
-  previousMove: {x: 0, y: 0}
 --- !u!114 &281299507673297783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +493,8 @@ MonoBehaviour:
   - {fileID: 9100000, guid: efd281df7caeb1645842e7c5f52d8f4b, type: 2}
   - {fileID: 9100000, guid: 83f14a2f6ce2d3d4fa9c5b75a0a031c5, type: 2}
   - {fileID: 9100000, guid: e7feda8e23040bd4d84eb267076a8775, type: 2}
-  - {fileID: 9100000, guid: efd281df7caeb1645842e7c5f52d8f4b, type: 2}
+  - {fileID: 9100000, guid: cf34ec566b5052c43a4c3b668ad54abb, type: 2}
+  selectedSkin: 0
 --- !u!114 &7407842451782846274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,9 +513,12 @@ MonoBehaviour:
   heldItemLibrary: {fileID: 11400000, guid: b56c99d86e6bca746b8fa0dbf90d78bb, type: 2}
   holdingTransform: {fileID: 6469051636576669088}
   playerRigidbody: {fileID: 6641370716391044433}
-  throwSpeed: 5
-  thrownCooldown: 0.1
+  itemThrowSpeed: 8
+  playerThrowSpeed: 12
+  itemPickupCooldown: 1
   heldItem: 0
+  heldPlayerId: 0
+  heldPlayer: {fileID: 0}
 --- !u!114 &-259793815591245304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,3 +533,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  focusedPlayer: {fileID: 0}

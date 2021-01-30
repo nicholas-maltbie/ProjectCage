@@ -1,31 +1,37 @@
 fileFormatVersion: 2
-guid: bd50ffc215199fd43b2f7a557aee1004
+guid: 6826f27794888f74c8173a09990708bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -391518458246632338
-    second: MoveLeft_1
+      213: 2093289256653797074
+    second: conair_cage_sprite_map_2-Sheet_0
   - first:
-      213: -617828285651997465
-    second: MoveLeft_2
+      213: -4450401580854902685
+    second: conair_cage_sprite_map_2-Sheet_1
   - first:
-      213: 7188927696640354029
-    second: ForwardIdle
+      213: -4377056185019559537
+    second: conair_cage_sprite_map_2-Sheet_2
   - first:
-      213: -3108025915955643371
-    second: ForwardIdle_2
+      213: -5195616429428496788
+    second: conair_cage_sprite_map_2-Sheet_3
   - first:
-      213: -4545383689773751617
-    second: MoveUp_1
+      213: 8334889562342102586
+    second: conair_cage_sprite_map_2-Sheet_4
   - first:
-      213: -8317271256241006759
-    second: MoveUp_2
+      213: -5142432189667195438
+    second: conair_cage_sprite_map_2-Sheet_5
   - first:
-      213: 2788872823661102619
-    second: MoveDown_1
+      213: -1156066340302737927
+    second: conair_cage_sprite_map_2-Sheet_6
   - first:
-      213: -5705038584999951439
-    second: MoveDown_2
+      213: -2701001799423375734
+    second: conair_cage_sprite_map_2-Sheet_7
+  - first:
+      213: 5123212599965683074
+    second: conair_cage_sprite_map_2-Sheet_8
+  - first:
+      213: -3417779175518838190
+    second: conair_cage_sprite_map_2-Sheet_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,7 +50,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
@@ -58,9 +64,9 @@ TextureImporter:
     filterMode: 0
     aniso: -1
     mipBias: -100
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -135,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MoveLeft_1
+      name: conair_cage_sprite_map_2-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,20 +149,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6c633d590c019af0800000000000000
-      internalID: -391518458246632338
+      spriteID: 2d6bdfafc7bdc0d10800000000000000
+      internalID: 2093289256653797074
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoveLeft_2
+      name: conair_cage_sprite_map_2-Sheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -164,20 +170,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ec268592780d67f0800000000000000
-      internalID: -617828285651997465
+      spriteID: 3608e49675ffc32c0800000000000000
+      internalID: -4450401580854902685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForwardIdle
+      name: conair_cage_sprite_map_2-Sheet_2
       rect:
         serializedVersion: 2
         x: 128
@@ -185,20 +191,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de6273ac6a334c360800000000000000
-      internalID: 7188927696640354029
+      spriteID: f819bf127929143c0800000000000000
+      internalID: -4377056185019559537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForwardIdle_2
+      name: conair_cage_sprite_map_2-Sheet_3
       rect:
         serializedVersion: 2
         x: 192
@@ -206,20 +212,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51c71ce75e21ed4d0800000000000000
-      internalID: -3108025915955643371
+      spriteID: c662bbe826675e7b0800000000000000
+      internalID: -5195616429428496788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoveUp_1
+      name: conair_cage_sprite_map_2-Sheet_4
       rect:
         serializedVersion: 2
         x: 256
@@ -227,20 +233,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb26e2bdd9d8be0c0800000000000000
-      internalID: -4545383689773751617
+      spriteID: a36138595e97ba370800000000000000
+      internalID: 8334889562342102586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoveUp_2
+      name: conair_cage_sprite_map_2-Sheet_5
       rect:
         serializedVersion: 2
         x: 320
@@ -248,20 +254,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9571037fbdd139c80800000000000000
-      internalID: -8317271256241006759
+      spriteID: 2d54a555b2962a8b0800000000000000
+      internalID: -5142432189667195438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoveDown_1
+      name: conair_cage_sprite_map_2-Sheet_6
       rect:
         serializedVersion: 2
         x: 384
@@ -269,20 +275,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b168f0a9e0114b620800000000000000
-      internalID: 2788872823661102619
+      spriteID: 9fd2871e9c3d4ffe0800000000000000
+      internalID: -1156066340302737927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoveDown_2
+      name: conair_cage_sprite_map_2-Sheet_7
       rect:
         serializedVersion: 2
         x: 448
@@ -290,14 +296,56 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b34e2f22a1a3d0b0800000000000000
-      internalID: -5705038584999951439
+      spriteID: a86cda78c2d148ad0800000000000000
+      internalID: -2701001799423375734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: conair_cage_sprite_map_2-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28d82c937be491740800000000000000
+      internalID: 5123212599965683074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: conair_cage_sprite_map_2-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 252e872b2fb9190d0800000000000000
+      internalID: -3417779175518838190
       vertices: []
       indices: 
       edges: []
