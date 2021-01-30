@@ -16,6 +16,8 @@ public abstract class Animal : NetworkBehaviour
 
     public GameObject target;
 
+    public Scripts.Items.Item favoriteFood;
+
     // This variable denotes whether a sprite is drawn facing Right or Left by default.
     public Direction initialFacingDirection = Direction.Left;
     private NavMeshAgent agent;

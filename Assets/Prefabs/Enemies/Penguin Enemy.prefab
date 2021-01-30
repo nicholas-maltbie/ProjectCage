@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 8647426001240235808}
   - component: {fileID: 8647426001240235811}
   - component: {fileID: 8647426001240235839}
-  - component: {fileID: 8647426001240235836}
   - component: {fileID: 8647426001240235838}
-  - component: {fileID: 8647426001240235837}
+  - component: {fileID: 6195585680596406094}
   - component: {fileID: 8647426001240235809}
   - component: {fileID: 8647426001240235834}
+  - component: {fileID: 7410857776893634260}
   m_Layer: 0
-  m_Name: Panda Enemy
+  m_Name: Penguin Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 1194549665
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 9056969288295072004, guid: 0713e7bb633ccaf4d8f0e4c4207f921a,
+  m_Sprite: {fileID: 8347663778839440840, guid: 37485d45c479e9e45961e2950d212866,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,7 +134,7 @@ Animator:
   m_GameObject: {fileID: 8647426001240235812}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ec6bad7a68efb304bafc5f01e9986db8, type: 2}
+  m_Controller: {fileID: 9100000, guid: a69ab2cdbbe9f854da54ab7405af2769, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -143,22 +143,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &8647426001240235836
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8647426001240235812}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.99, y: 0.64000297}
-  m_Direction: 1
 --- !u!195 &8647426001240235838
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -181,7 +165,7 @@ NavMeshAgent:
   m_BaseOffset: 0.32
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8647426001240235837
+--- !u!114 &6195585680596406094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,14 +174,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8647426001240235812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10fbd4b3289492648979ad17646a0b4e, type: 3}
+  m_Script: {fileID: 11500000, guid: a558192551b1f1542a5e3d5b3f901ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
   target: {fileID: 0}
-  favoriteFood: 10
-  initialFacingDirection: -1
+  favoriteFood: 40
+  initialFacingDirection: 1
 --- !u!58 &8647426001240235809
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -230,3 +214,19 @@ MonoBehaviour:
   syncInterval: 0.1
   clientAuthority: 0
   animator: {fileID: 8647426001240235839}
+--- !u!58 &7410857776893634260
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647426001240235812}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.16

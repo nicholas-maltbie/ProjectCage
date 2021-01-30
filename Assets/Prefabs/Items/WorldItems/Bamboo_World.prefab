@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: -7095591405261853279}
   m_Layer: 0
   m_Name: Bamboo_World
-  m_TagString: Untagged
+  m_TagString: Food Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +137,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1264512073
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7602c6eea38e7b0489f2f17e7959de89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

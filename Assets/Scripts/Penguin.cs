@@ -4,7 +4,7 @@ using UnityEngine;
 using Scripts.Character;
 using Scripts.Items;
 
-public class Panda : Animal
+public class Penguin : Animal
 {
     protected override void Start()
     {
