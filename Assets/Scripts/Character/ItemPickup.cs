@@ -64,9 +64,10 @@ namespace Scripts.Character
             }
         }
 
-        public void OnTriggerEnter2D(Collider2D other)
+        private void TriggerEnterOrStay(Collider2D other)
         {
-            if (isLocalPlayer)
+            var identity = other.GetComponent<NetworkIdentity>();
+            if (isLocalPlayer && identity != null && identity.isActiveAndEnabled)
             {
                 var playerPickup = other.gameObject.GetComponent<PlayerPickupRadius>();
                 if (other.gameObject.GetComponent<Pickupable>() != null)
@@ -82,6 +83,16 @@ namespace Scripts.Character
                     focusedPlayer = playerPickup.pickupReference;
                 }
             }
+        }
+
+        public void OnTriggerStay2D(Collider2D other)
+        {
+            TriggerEnterOrStay(other);
+        }
+
+        public void OnTriggerEnter2D(Collider2D other)
+        {
+            TriggerEnterOrStay(other);
         }
     }
 }
