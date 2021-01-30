@@ -25,7 +25,7 @@ namespace Scripts.Character
         public Item heldItem;
 
         [SyncVar]
-        public GameObject heldPlayer;
+        public CharacterSkin heldCharacterSkin;
 
         public void Start()
         {
@@ -100,7 +100,7 @@ namespace Scripts.Character
             {
                 GameObject heldItem = Instantiate(heldItemLibrary.GetItem(item), holdingTransform);
                 // Link the animating renderer and the normal sprite controller
-                heldItem.GetComponent<HeldCharacterSkin>().linkedCharacter = heldPlayer.GetComponent<CharacterSkin>();
+                heldItem.GetComponent<HeldCharacterSkin>().linkedCharacter = heldCharacterSkin;
             }
         }
 
@@ -122,7 +122,7 @@ namespace Scripts.Character
             // Set our held item as none
             heldItem = Item.None;
             // Reset held player
-            heldPlayer = null;
+            heldCharacterSkin = null;
             // Get the new position and velocity of thrown player
             Vector2 throwDir = GetThrowDirection();
             Vector2 targetPosition = GetThrowPosition(throwDir);
@@ -159,9 +159,9 @@ namespace Scripts.Character
             // Set the held state of the other characer to held
             otherMovement.heldState = CharacterHeld.Held;
             // Set their held position as our holding position
-            otherMovement.holder = holdingTransform;
+            otherMovement.holder = gameObject;
             // Save that we are holding that player
-            heldPlayer = otherPlayer;
+            heldCharacterSkin = otherPlayer.GetComponent<CharacterSkin>();
             heldItem = Item.Player;
             // Tell the other player we are carrying them
             otherMovement.holdingCharacterController = currentMovement;
@@ -183,7 +183,7 @@ namespace Scripts.Character
                 }
                 if (this.heldItem == Item.Player)
                 {
-                    CmdYeetPlayer(this.heldPlayer);
+                    CmdYeetPlayer(this.heldCharacterSkin.gameObject);
                 }
             }
         }

@@ -15,7 +15,8 @@ namespace Scripts.Character
     {
         public float thrownCooldown;
 
-        public Transform holder;
+        [SyncVar]
+        public GameObject holder;
 
         [SyncVar(hook = nameof(OnChangeHeldState))]
         public CharacterHeld heldState = CharacterHeld.Normal;
@@ -100,7 +101,7 @@ namespace Scripts.Character
         {
             if ((isLocalPlayer || (isDebugPlayer && isServer)) && heldState == CharacterHeld.Held && holder != null)
             {
-                transform.position = holder.transform.position;
+                transform.position = holder.GetComponent<HoldObject>().holdingTransform.position;
             }
         }
 
