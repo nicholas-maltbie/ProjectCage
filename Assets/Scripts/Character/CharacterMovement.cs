@@ -1,11 +1,13 @@
-Rigidbody2D body;
+using UnityEngine;
+
 namespace Scripts.Character
 {
-   public class CharacterMovement:MonoBehaviour
+   public class CharacterMovement : MonoBehaviour
    {
-      float horizontal;
-      float vertical;
-      float moveLimiter = 0.7f;
+      private Rigidbody2D body;
+      private float horizontal;
+      private float vertical;
+      private float moveLimiter = 0.7f;
 
       public float runSpeed = 20.0f;
 
