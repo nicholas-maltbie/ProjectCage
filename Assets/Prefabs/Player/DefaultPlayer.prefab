@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3398127787815788957}
   - component: {fileID: 6128123137214018663}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 4549541711008431590}
   - component: {fileID: 4527617640161776108}
   - component: {fileID: 1174752075185786358}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6469051636576669088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HoldTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 281299507673297783}
   - component: {fileID: 7407842451782846274}
   - component: {fileID: -259793815591245304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DefaultPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,6 +357,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   runSpeed: 5
+  lastMovement: {x: 0, y: 0}
 --- !u!114 &2011298788433486666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +406,7 @@ MonoBehaviour:
   animationController: {fileID: 1174752075185786358}
   spriteRenderer: {fileID: 4527617640161776108}
   isRightFlipped: 1
+  previousMove: {x: 0, y: 0}
 --- !u!114 &281299507673297783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,6 +444,7 @@ MonoBehaviour:
   holdingTransform: {fileID: 6469051636576669088}
   playerRigidbody: {fileID: 6641370716391044433}
   throwSpeed: 5
+  thrownCooldown: 0.1
   heldItem: 0
 --- !u!114 &-259793815591245304
 MonoBehaviour:

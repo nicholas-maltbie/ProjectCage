@@ -31,22 +31,29 @@ namespace Scripts.Character
         public void CmdYeetItem(Item yeet)
         {
             GameObject yeetedPrefab = worldItemLibrary.GetItem(yeet);
+            Vector2 throwDir = GetComponent<CharacterMovement>().lastMovement;
+            if (playerRigidbody.velocity.magnitude > 0)
+            {
+                throwDir = playerRigidbody.velocity.normalized;
+            }
+            Vector2 targetPosition = transform.position + new Vector3(throwDir.x, throwDir.y);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, throwDir, throwDir.magnitude, ~(1 << LayerMask.NameToLayer("Player")));
+
             GameObject spawned = Instantiate(yeetedPrefab);
             Pickupable pickup = spawned.GetComponent<Pickupable>();
+
             pickup.pickupCooldown = thrownCooldown;
             NetworkServer.Spawn(spawned);
             Rigidbody2D thrown = spawned.GetComponent<Rigidbody2D>();
-            Vector2 throwDir = GetComponent<CharacterMovement>().lastMovement;
             if (thrown != null)
             {
-                if (playerRigidbody.velocity.magnitude > 0)
-                {
-                    throwDir = playerRigidbody.velocity.normalized;
-                }
-
                 thrown.velocity = throwDir * throwSpeed + playerRigidbody.velocity;
             }
-            spawned.transform.position = transform.position + new Vector3(throwDir.x, throwDir.y);
+            if (hit)
+            {
+                targetPosition = transform.position;
+            }
+            spawned.transform.position = targetPosition;
         }
 
         public IEnumerator ChangeItem(Item item)
