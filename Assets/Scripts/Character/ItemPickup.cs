@@ -37,21 +37,31 @@ namespace Scripts.Character
 
         public void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.GetComponent<Pickupable>() != null)
+            if (isLocalPlayer)
             {
-                CmdPickupItem(other.gameObject);
+                if (other.gameObject.GetComponent<Pickupable>() != null)
+                {
+                    CmdPickupItem(other.gameObject);
+                }
+                if (other.gameObject.GetComponent<CharacterMovement>() != null)
+                {
+                    GetComponent<HoldObject>().CmdPickupAnotherPlayer(other.gameObject);
+                }
             }
         }
 
         public void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.GetComponent<Pickupable>() != null)
+            if (isLocalPlayer)
             {
-                CmdPickupItem(other.gameObject);
-            }
-            else if (other.gameObject.GetComponent<PickupableRadius>() != null)
-            {
-                CmdPickupItem(other.GetComponent<PickupableRadius>().pickupReference.gameObject);
+                if (other.gameObject.GetComponent<Pickupable>() != null)
+                {
+                    CmdPickupItem(other.gameObject);
+                }
+                else if (other.gameObject.GetComponent<PickupableRadius>() != null)
+                {
+                    CmdPickupItem(other.GetComponent<PickupableRadius>().pickupReference.gameObject);
+                }
             }
         }
     }

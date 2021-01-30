@@ -356,6 +356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  holder: {fileID: 0}
+  heldState: 2
   runSpeed: 5
   lastMovement: {x: 0, y: 0}
 --- !u!114 &2011298788433486666

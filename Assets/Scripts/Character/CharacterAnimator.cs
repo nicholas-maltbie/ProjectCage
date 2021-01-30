@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Scripts.Character
 {
+    [RequireComponent(typeof(CharacterMovement))]
     public class CharacterAnimator : NetworkBehaviour
     {
         public Rigidbody2D body;
@@ -13,38 +14,71 @@ namespace Scripts.Character
 
         private bool previousFlippedState;
 
-        public Vector2 previousMove = Vector2.zero;
+        private CharacterMovement characterMovement;
 
         [SyncVar]
         private bool flippedState;
 
-        [Command]
-        public void CmdSetFlippedState(bool flippedState)
+        public void SetFlippedState(bool flippedState)
         {
             this.flippedState = flippedState;
         }
 
+        [Command]
+        public void CmdSetFlippedState(bool flippedState)
+        {
+            SetFlippedState(flippedState);
+        }
+
+        public void Start()
+        {
+            characterMovement = GetComponent<CharacterMovement>();
+        }
+
         void Update()
         {
-            if (isLocalPlayer)
+            if (isLocalPlayer || (characterMovement.isDebugPlayer && isServer))
             {
-                if (previousMove.magnitude > 0)
-                {
-                    animationController.SetFloat("PreviousX", previousMove.x);
-                    animationController.SetFloat("PreviousY", previousMove.y);
-                }
+                Vector2 previousMove = characterMovement.lastMovement;
+                animationController.SetFloat("PreviousX", previousMove.x);
+                animationController.SetFloat("PreviousY", previousMove.y);
                 animationController.SetFloat("MoveX", body.velocity.x);
                 animationController.SetFloat("MoveY", body.velocity.y);
-                previousMove = body.velocity;
-
                 animationController.SetBool("Walking", body.velocity.magnitude > 0);
+                animationController.SetBool("Held", characterMovement.heldState == CharacterHeld.Held);
+                animationController.SetBool("Thrown", characterMovement.heldState == CharacterHeld.Thrown);
 
+                // Check for flipped state when moving
                 bool newFlippedState = isRightFlipped == (body.velocity.x > 0);
+                // Check for flipped state when still
+                if (body.velocity.magnitude == 0)
+                {
+                    newFlippedState = isRightFlipped == (previousMove.x > 0);
+                }
+                // Check for flipped state when held
+                if (characterMovement.heldState == CharacterHeld.Held)
+                {
+                    newFlippedState = isRightFlipped == (characterMovement.holdingCharacterController.lastMovement.x > 0);
+                }
+
                 if (newFlippedState != previousFlippedState)
                 {
-                    CmdSetFlippedState(newFlippedState);
+                    if (!isServer)
+                    {
+                        CmdSetFlippedState(newFlippedState);
+                    }
                 }
                 previousFlippedState = newFlippedState;
+                this.flippedState = newFlippedState;
+            }
+
+            if (characterMovement.heldState == CharacterHeld.Held)
+            {
+                spriteRenderer.sortingLayerName = "HeldPlayer";
+            }
+            else
+            {
+                spriteRenderer.sortingLayerName = "Player";
             }
 
             spriteRenderer.flipX = this.flippedState;
