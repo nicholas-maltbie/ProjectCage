@@ -14,34 +14,9 @@ public class EnclosureManager : NetworkBehaviour
         penguinEnclosure.enclosureSpecies = AnimalSpecies.Penguin;
         pandaEnclosure.numberOfSpecies = FindObjectsOfType<Panda>().Length;
         pandaEnclosure.enclosureSpecies = AnimalSpecies.Panda;
+        lionEnclosure.numberOfSpecies = FindObjectsOfType<Lion>().Length;
+        lionEnclosure.enclosureSpecies = AnimalSpecies.Lion;
         // lionEnclosure.numberOfSpecies = FindObjectsOfType<Lion>().Length;
     }
 
-    public void UpdateCaptureStatus(AnimalSpecies species, bool status)
-    {
-        switch (species)
-        {
-            case AnimalSpecies.Penguin:
-                arePenguinsFound = status;
-                break;
-            case AnimalSpecies.Panda:
-                arePandasFound = status;
-                break;
-            case AnimalSpecies.Lion:
-                areLionsFound = status;
-                break;
-        }
-        if (isServer)
-        {
-            if (CheckVictoryState())
-            {
-                print("Win!");
-            }
-        }
-    }
-
-    public bool CheckVictoryState()
-    {
-        return arePenguinsFound && arePandasFound;
-    }
 }

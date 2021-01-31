@@ -29,12 +29,6 @@ public class Enclosure : NetworkBehaviour
         if (isServer && IsCorrectTarget(other))
         {
             other.GetComponent<Animal>().Consume();
-
-            if (numberOfSpecies >= numberCaptured)
-            {
-                enclosureManager.UpdateCaptureStatus(enclosureSpecies, true);
-            }
-
         }
     }
 }
