@@ -14,4 +14,9 @@ public class Panda : Animal
     {
         base.Update();
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        other.gameObject.SendMessage("KillCharacter", SendMessageOptions.DontRequireReceiver);
+    }
 }
