@@ -72,6 +72,15 @@ namespace Scripts.Character
             this.heldState = heldState;
         }
 
+        public bool IsMoving()
+        {
+            if (horizontal != 0 || vertical != 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         void Start()
         {
             body = GetComponent<Rigidbody2D>();
