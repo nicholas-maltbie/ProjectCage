@@ -492,8 +492,8 @@ MonoBehaviour:
   animatorSkins:
   - {fileID: 9100000, guid: efd281df7caeb1645842e7c5f52d8f4b, type: 2}
   - {fileID: 9100000, guid: 83f14a2f6ce2d3d4fa9c5b75a0a031c5, type: 2}
-  - {fileID: 9100000, guid: e7feda8e23040bd4d84eb267076a8775, type: 2}
-  - {fileID: 9100000, guid: cf34ec566b5052c43a4c3b668ad54abb, type: 2}
+  - {fileID: 9100000, guid: 106fb97c9f9d4dd428c76a7ce427314d, type: 2}
+  - {fileID: 9100000, guid: 9c4b6182bc8f33e4e868a9bd25557bc9, type: 2}
   selectedSkin: 0
 --- !u!114 &7407842451782846274
 MonoBehaviour:
@@ -516,6 +516,7 @@ MonoBehaviour:
   itemThrowSpeed: 8
   playerThrowSpeed: 12
   itemPickupCooldown: 1
+  localItem: 0
   heldItem: 0
   heldPlayerId: 0
   heldPlayer: {fileID: 0}

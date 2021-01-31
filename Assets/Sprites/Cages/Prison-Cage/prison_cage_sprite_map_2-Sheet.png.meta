@@ -1,31 +1,37 @@
 fileFormatVersion: 2
-guid: 17e7643f5f1445244bb5b4b6701e56c6
+guid: c80cc6bca103f7a4ea8ed577876f4e9f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2816425305995868571
-    second: vacationcage_map-Sheet_0
+      213: 2752492900725123441
+    second: prison_cage_sprite_map_2-Sheet_0
   - first:
-      213: -8187685872526018092
-    second: vacationcage_map-Sheet_1
+      213: -353040475318788542
+    second: prison_cage_sprite_map_2-Sheet_1
   - first:
-      213: -800694207289059609
-    second: vacationcage_map-Sheet_2
+      213: -3193534440843568195
+    second: prison_cage_sprite_map_2-Sheet_2
   - first:
-      213: -3057015319628991754
-    second: vacationcage_map-Sheet_3
+      213: 1417963237701505995
+    second: prison_cage_sprite_map_2-Sheet_3
   - first:
-      213: 6615384055573884566
-    second: vacationcage_map-Sheet_4
+      213: 6265431138169289097
+    second: prison_cage_sprite_map_2-Sheet_4
   - first:
-      213: 7900480415154440275
-    second: vacationcage_map-Sheet_5
+      213: 7368952943629777245
+    second: prison_cage_sprite_map_2-Sheet_5
   - first:
-      213: -7074646089181778617
-    second: vacationcage_map-Sheet_6
+      213: 2801409450003625426
+    second: prison_cage_sprite_map_2-Sheet_6
   - first:
-      213: 9180710529300233970
-    second: vacationcage_map-Sheet_7
+      213: -2356211546730234964
+    second: prison_cage_sprite_map_2-Sheet_7
+  - first:
+      213: 8501553856846766833
+    second: prison_cage_sprite_map_2-Sheet_8
+  - first:
+      213: 8606817122198507584
+    second: prison_cage_sprite_map_2-Sheet_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -135,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vacationcage_map-Sheet_0
+      name: prison_cage_sprite_map_2-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -149,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56602b33b1c0ae8d0800000000000000
-      internalID: -2816425305995868571
+      spriteID: 179618ab5b1d23620800000000000000
+      internalID: 2752492900725123441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vacationcage_map-Sheet_1
+      name: prison_cage_sprite_map_2-Sheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -170,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d93a93441f7f5e80800000000000000
-      internalID: -8187685872526018092
+      spriteID: 24ed945ee8fb91bf0800000000000000
+      internalID: -353040475318788542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vacationcage_map-Sheet_2
+      name: prison_cage_sprite_map_2-Sheet_2
       rect:
         serializedVersion: 2
         x: 128
@@ -191,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e692d85cdc53e4f0800000000000000
-      internalID: -800694207289059609
+      spriteID: dbb1b8b98594ea3d0800000000000000
+      internalID: -3193534440843568195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vacationcage_map-Sheet_3
+      name: prison_cage_sprite_map_2-Sheet_3
       rect:
         serializedVersion: 2
         x: 192
@@ -212,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f2369873cc4395d0800000000000000
-      internalID: -3057015319628991754
+      spriteID: bc3d2cf4d0e9da310800000000000000
+      internalID: 1417963237701505995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vacationcage_map-Sheet_4
+      name: prison_cage_sprite_map_2-Sheet_4
       rect:
         serializedVersion: 2
         x: 256
@@ -233,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69ea34dafb09ecb50800000000000000
-      internalID: 6615384055573884566
+      spriteID: 989704bac6843f650800000000000000
+      internalID: 6265431138169289097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vacationcage_map-Sheet_5
+      name: prison_cage_sprite_map_2-Sheet_5
       rect:
         serializedVersion: 2
         x: 320
@@ -254,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 358063c341524ad60800000000000000
-      internalID: 7900480415154440275
+      spriteID: d593f9be8a7c34660800000000000000
+      internalID: 7368952943629777245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vacationcage_map-Sheet_6
+      name: prison_cage_sprite_map_2-Sheet_6
       rect:
         serializedVersion: 2
         x: 384
@@ -275,14 +281,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74da6be6ddec1dd90800000000000000
-      internalID: -7074646089181778617
+      spriteID: 2d573e16d0b90e620800000000000000
+      internalID: 2801409450003625426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: vacationcage_map-Sheet_7
+      name: prison_cage_sprite_map_2-Sheet_7
       rect:
         serializedVersion: 2
         x: 448
@@ -296,8 +302,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fef0acb59f686f70800000000000000
-      internalID: 9180710529300233970
+      spriteID: cab787df41e0d4fd0800000000000000
+      internalID: -2356211546730234964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prison_cage_sprite_map_2-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2243c80369bf570800000000000000
+      internalID: 8501553856846766833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prison_cage_sprite_map_2-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 040546f529e817770800000000000000
+      internalID: 8606817122198507584
       vertices: []
       indices: 
       edges: []
