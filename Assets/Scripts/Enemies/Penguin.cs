@@ -5,7 +5,7 @@ using Scripts.Animals;
 
 public class Penguin : Animal
 {
-    protected override void Start()
+    public override void Start()
     {
         species = AnimalSpecies.Penguin;
         base.Start();
