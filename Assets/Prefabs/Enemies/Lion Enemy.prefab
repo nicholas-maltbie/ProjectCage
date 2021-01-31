@@ -199,10 +199,10 @@ MonoBehaviour:
   scoreCredit: {fileID: 0}
   favoriteFood: 20
   initialFacingDirection: -1
-  species: 0
-  pointValue: 1
+  species: 3
+  pointValue: 11
   nest: {fileID: 0}
-  favoriteFood2: 0
+  favoriteFood2: 30
 --- !u!58 &8767966704592467211
 CircleCollider2D:
   m_ObjectHideFlags: 0
