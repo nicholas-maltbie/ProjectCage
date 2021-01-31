@@ -26,7 +26,7 @@ public class Lion : Animal
     protected override void OnTriggerStay2D(Collider2D other)
     {
         var isPlayer = other.CompareTag("Player");
-        var isMeat = other.GetComponent<ItemState>().item == favoriteFood || other.GetComponent<ItemState>().item == favoriteFood2;
+        var isMeat = other.GetComponent<ItemState>() && (other.GetComponent<ItemState>().item == favoriteFood || other.GetComponent<ItemState>().item == favoriteFood2);
         var isFoodItem = other.CompareTag("Food Item") && isMeat;
         if (isPlayer || isFoodItem)
         {
