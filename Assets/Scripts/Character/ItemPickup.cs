@@ -7,7 +7,21 @@ namespace Scripts.Character
     [RequireComponent(typeof(HoldObject))]
     public class ItemPickup : NetworkBehaviour
     {
+        public float pickupResetTime = 0.1f;
+
+        private float pickupCooldown = 0.0f;
+
         public GameObject focusedPlayer;
+
+        public bool DoneWithCooldown()
+        {
+            return pickupCooldown <= 0;
+        }
+
+        public void StartCooldown()
+        {
+            pickupCooldown = pickupResetTime;
+        }
 
         [Command]
         public void CmdPickupItem(GameObject worldItem)
@@ -26,10 +40,19 @@ namespace Scripts.Character
             {
                 return;
             }
+
+            // Make sure we're on cooldown
+            if (!this.DoneWithCooldown())
+            {
+                return;
+            }
+
             pickup.isBeingPickedUp = true;
 
             // Destory the current item
             NetworkServer.Destroy(worldItem);
+
+            StartCooldown();
 
             // Get the item type of the thing being picked up
             Item item = worldItem.GetComponent<ItemState>().item;
@@ -37,18 +60,11 @@ namespace Scripts.Character
             holder.heldItem = item;
         }
 
-        public void OnCollisionEnter2D(Collision2D other)
+        public void Update()
         {
-            if (isLocalPlayer)
+            if (pickupCooldown > 0)
             {
-                if (other.gameObject.GetComponent<Pickupable>() != null)
-                {
-                    CmdPickupItem(other.gameObject);
-                }
-                // if (other.gameObject.GetComponent<CharacterMovement>() != null && GetComponent<CharacterMovement>().heldState == CharacterHeld.Normal)
-                // {
-                //     GetComponent<HoldObject>().CmdPickupAnotherPlayer(other.gameObject);
-                // }
+                pickupCooldown -= Time.deltaTime;
             }
         }
 
@@ -69,7 +85,7 @@ namespace Scripts.Character
             var identity = other.GetComponent<NetworkIdentity>();
             if (isLocalPlayer)
             {
-                if (identity != null && identity.isActiveAndEnabled)
+                if (identity != null && identity.isActiveAndEnabled && GetComponent<HoldObject>().heldItem == Item.None)
                 {
                     if (other.gameObject.GetComponent<Pickupable>() != null)
                     {

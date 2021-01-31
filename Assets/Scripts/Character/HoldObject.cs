@@ -73,6 +73,7 @@ namespace Scripts.Character
         public void CmdYeetItem(Item yeet)
         {
             GameObject yeetedPrefab = worldItemLibrary.GetItem(yeet);
+            this.heldItem = Item.None;
             Vector2 throwDir = GetThrowDirection();
             Vector2 targetPosition = GetThrowPosition(throwDir);
             GameObject spawned = Instantiate(yeetedPrefab, targetPosition, Quaternion.identity);
@@ -169,6 +170,11 @@ namespace Scripts.Character
             {
                 return;
             }
+            // make sure cooldown is done
+            if (!GetComponent<ItemPickup>().DoneWithCooldown())
+            {
+                return;
+            }
             // Can only pickup player if we are also not held
             if (currentMovement.heldState != CharacterHeld.Normal)
             {
@@ -192,10 +198,10 @@ namespace Scripts.Character
 
             if (Input.GetButtonDown("Drop") && heldItem != Item.None)
             {
+                GetComponent<ItemPickup>().StartCooldown();
                 if (ItemState.IsThrowableItem(this.heldItem))
                 {
                     CmdYeetItem(this.heldItem);
-                    CmdSetHeldItem(Item.None);
                 }
                 if (this.heldItem == Item.Player)
                 {
