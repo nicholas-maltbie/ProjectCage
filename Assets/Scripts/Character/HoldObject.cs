@@ -257,9 +257,13 @@ namespace Scripts.Character
                     CmdYeetPlayer(this.heldPlayer);
                 }
             }
-            if (Input.GetButtonDown("Drop") && itemPickup.focusedPlayer != null)
+            else if (Input.GetButtonDown("Drop") && itemPickup.focusedPickup != null && itemPickup.focusedPickup.pickupType == Item.Player)
             {
-                CmdPickupAnotherPlayer(itemPickup.focusedPlayer);
+                CmdPickupAnotherPlayer(itemPickup.focusedPickup.gameObject);
+            }
+            else if (Input.GetButtonDown("Drop") && itemPickup.focusedPickup != null && ItemState.IsThrowableItem(itemPickup.focusedPickup.pickupType))
+            {
+                CmdSetHeldItem(itemPickup.focusedPickup.pickupType);
             }
         }
     }

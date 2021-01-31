@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5659150470655647387}
-  - component: {fileID: 6184690167976640221}
+  - component: {fileID: 8310398935348587392}
   - component: {fileID: 8080638127508205774}
   m_Layer: 0
   m_Name: PickupRadius
@@ -184,7 +184,7 @@ Transform:
   m_Father: {fileID: 6641370716391044439}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6184690167976640221
+--- !u!114 &8310398935348587392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,9 +193,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 922544289498943637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4ebf4e5bd136234a816813ac3df2f42, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a53350a3b6f55743bdb30c3f8323e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupType: 100
   pickupReference: {fileID: 6641370716391044434}
 --- !u!58 &8080638127508205774
 CircleCollider2D:
@@ -354,7 +355,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1770660093
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -391518458246632338, guid: bd50ffc215199fd43b2f7a557aee1004,
     type: 3}
@@ -699,7 +700,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   pickupResetTime: 0.1
-  focusedPlayer: {fileID: 0}
+  focusedPickup: {fileID: 0}
 --- !u!114 &2213435203631878857
 MonoBehaviour:
   m_ObjectHideFlags: 0
