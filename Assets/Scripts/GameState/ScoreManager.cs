@@ -32,7 +32,7 @@ public class ScoreManager : NetworkBehaviour
         var nm = FindObjectOfType<NetworkManager>();
         nm.ServerChangeScene("FirstZoo");
     }
-    
+
     [ClientRpc]
     public void RpcDisplayWinner(string winnerName)
     {
