@@ -24,11 +24,13 @@ public class Enclosure : NetworkBehaviour
         bool isCorrectAnimal = other.GetComponent<Animal>() && other.GetComponent<Animal>().species == enclosureSpecies;
         return isCorrectAnimal && !other.isTrigger;
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (isServer && IsCorrectTarget(other))
         {
-            numberCaptured += 1;
+            print("Murder");
+            NetworkServer.Destroy(other.gameObject);
+
             if (numberOfSpecies >= numberCaptured)
             {
                 enclosureManager.UpdateCaptureStatus(enclosureSpecies, true);
@@ -36,14 +38,26 @@ public class Enclosure : NetworkBehaviour
 
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (isServer && IsCorrectTarget(other))
-        {
-            numberCaptured -= 1;
-            enclosureManager.UpdateCaptureStatus(enclosureSpecies, false);
 
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (isServer && IsCorrectTarget(other))
+    //     {
+    //         numberCaptured += 1;
+    //         if (numberOfSpecies >= numberCaptured)
+    //         {
+    //             enclosureManager.UpdateCaptureStatus(enclosureSpecies, true);
+    //         }
 
+    //     }
+    // }
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if (isServer && IsCorrectTarget(other))
+    //     {
+    //         numberCaptured -= 1;
+    //         enclosureManager.UpdateCaptureStatus(enclosureSpecies, false);
+
+    //     }
+    // }
 }
