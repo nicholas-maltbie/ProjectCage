@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Scripts.Character
 {
+
     public enum CharacterHeld
     {
         Held,
@@ -158,6 +159,10 @@ namespace Scripts.Character
         {
             if (isLocalPlayer)
             {
+                if (!GetComponent<DeathActions>().IsAlive)
+                {
+                    return;
+                }
                 Vector2 movement = new Vector2(horizontal, vertical);
                 if (heldState == CharacterHeld.Held)
                 {

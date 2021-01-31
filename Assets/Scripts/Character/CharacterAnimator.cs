@@ -45,7 +45,7 @@ namespace Scripts.Character
                 animationController.SetFloat("MoveX", body.velocity.x);
                 animationController.SetFloat("MoveY", body.velocity.y);
                 animationController.SetBool("Walking", body.velocity.magnitude > 0);
-                animationController.SetBool("Held", characterMovement.heldState == CharacterHeld.Held);
+                animationController.SetBool("Held", characterMovement.heldState == CharacterHeld.Held || !GetComponent<DeathActions>().IsAlive);
                 animationController.SetBool("Thrown", characterMovement.heldState == CharacterHeld.Thrown);
 
                 // Check for flipped state when moving
