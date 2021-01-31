@@ -9,4 +9,22 @@ public class PlayerScore : NetworkBehaviour
     string playerName;
     [SyncVar]
     public int score;
+
+    public ScoreTrackerText stt;
+
+    private void Start() 
+    {
+        if(isLocalPlayer)
+        {
+            stt = FindObjectOfType<ScoreTrackerText>();
+        }
+    }
+
+    public void ModifyScore(int change)
+    {
+        if(isLocalPlayer)
+        {
+            stt.UpdateScoreUI(score);
+        }
+    }
 }

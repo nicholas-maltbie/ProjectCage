@@ -6,6 +6,7 @@ using Mirror;
 using Scripts.Character;
 using Scripts.Animals;
 using Scripts.Items;
+using UnityEngine.SceneManagement;
 
 public enum Direction
 {
@@ -142,9 +143,8 @@ public abstract class Animal : NetworkBehaviour
         }
     }
 
-    private void OnDestroy()
+    public void Consume()
     {
-
         if (nest)
         {
             nest.NestSpawn();
@@ -154,5 +154,7 @@ public abstract class Animal : NetworkBehaviour
         {
             scoreManager.AddScore(scoreCredit, pointValue);
         }
+        NetworkServer.Destroy(this.gameObject);
     }
+
 }
