@@ -196,8 +196,12 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   target: {fileID: 0}
+  scoreCredit: {fileID: 0}
   favoriteFood: 10
   initialFacingDirection: -1
+  species: 0
+  pointValue: 10
+  nest: {fileID: 0}
 --- !u!58 &8647426001240235809
 CircleCollider2D:
   m_ObjectHideFlags: 0

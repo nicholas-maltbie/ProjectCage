@@ -44,6 +44,8 @@ public abstract class Animal : NetworkBehaviour
 
     protected ScoreManager scoreManager;
 
+    public EnemyNest nest;
+
     protected virtual void Start()
     {
         // Set some variables
@@ -138,6 +140,12 @@ public abstract class Animal : NetworkBehaviour
 
     private void OnDestroy()
     {
+        
+        if (nest)
+        {
+            nest.NestSpawn();
+        }
+        
         if (scoreCredit)
         {
             scoreManager.AddScore(scoreCredit, pointValue);
