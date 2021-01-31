@@ -443,6 +443,7 @@ GameObject:
   - component: {fileID: 2296317684966543725}
   - component: {fileID: -4533897295956724131}
   - component: {fileID: 2480312689936022499}
+  - component: {fileID: 4571580882123757321}
   m_Layer: 8
   m_Name: DefaultPlayer
   m_TagString: Player
@@ -755,6 +756,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   score: 0
+  stt: {fileID: 0}
 --- !u!82 &-4533897295956724131
 AudioSource:
   m_ObjectHideFlags: 0
@@ -871,3 +873,21 @@ MonoBehaviour:
   deathState: 1
   player: {fileID: 1649161314634379240}
   deathTimer: 5
+--- !u!114 &4571580882123757321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6641370716391044434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24241e81ca13c374cae69828ece55296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  characterSprite: {fileID: 4527617640161776108}
+  nameTransform: {fileID: 0}
+  nameReference: {fileID: 0}
+  characterName: Player
