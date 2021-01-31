@@ -40,6 +40,19 @@ namespace Scripts.Character
             StartCoroutine(ChangeItem(newItem));
         }
 
+        [Command]
+        public void CmdDropThings()
+        {
+            if (ItemState.IsThrowableItem(this.heldItem))
+            {
+                YeetItem(this.heldItem);
+            }
+            if (this.heldItem == Item.Player)
+            {
+                CmdYeetPlayer(this.heldPlayer);
+            }
+        }
+
         public Vector2 GetThrowDirection()
         {
             Vector2 throwDir = GetComponent<CharacterMovement>().lastMovement;
@@ -69,8 +82,7 @@ namespace Scripts.Character
             return throwDir * speedMultiplier + playerRigidbody.velocity;
         }
 
-        [Command]
-        public void CmdYeetItem(Item yeet)
+        public void YeetItem(Item yeet)
         {
             GameObject yeetedPrefab = worldItemLibrary.GetItem(yeet);
             this.heldItem = Item.None;
@@ -86,6 +98,12 @@ namespace Scripts.Character
             {
                 thrown.velocity = GetThrownVelocity(throwDir, itemThrowSpeed);
             }
+        }
+
+        [Command]
+        public void CmdYeetItem(Item yeet)
+        {
+            YeetItem(yeet);
         }
 
         public IEnumerator ChangeItem(Item item)
@@ -114,8 +132,7 @@ namespace Scripts.Character
             this.heldItem = selectedItem;
         }
 
-        [Command]
-        public void CmdYeetPlayer(GameObject otherPlayer)
+        public void YeetPlayer(GameObject otherPlayer)
         {
             CharacterMovement otherMovement = otherPlayer.GetComponent<CharacterMovement>();
             // Yeet the other player, set their state to thrown
@@ -138,6 +155,12 @@ namespace Scripts.Character
             {
                 thrown.velocity = GetThrownVelocity(throwDir, playerThrowSpeed);
             }
+        }
+
+        [Command]
+        public void CmdYeetPlayer(GameObject otherPlayer)
+        {
+            YeetPlayer(otherPlayer);
         }
 
         public IEnumerator PickupAnotherPlayerCoroutine()
