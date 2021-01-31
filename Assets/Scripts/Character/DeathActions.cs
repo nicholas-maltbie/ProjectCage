@@ -29,11 +29,11 @@ namespace Scripts.Character
             // Drop what we're carrying
             GetComponent<HoldObject>().CmdDropThings();
             // Play a death sound effect
-            this.CmdPlayerDeathSound();
+            RpcPlayDeathSound();
             // Increment death Counter
             TeamDeathCounter.Instance.IncrementDeaths();
             // Kill the player... for now
-            CmdStartDeathTimer();
+            StartCoroutine(PlayerDeathTimer());
         }
 
         public IEnumerator PlayerDeathTimer()
@@ -51,22 +51,10 @@ namespace Scripts.Character
             NetworkServer.Destroy(deathSplatterInstance);
         }
 
-        [Command]
-        public void CmdStartDeathTimer()
-        {
-            StartCoroutine(PlayerDeathTimer());
-        }
-
         [ClientRpc]
         public void RpcPlayDeathSound()
         {
             player.PlayDeathSound();
-        }
-
-        [Command]
-        public void CmdPlayerDeathSound()
-        {
-            RpcPlayDeathSound();
         }
     }
 }
