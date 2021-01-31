@@ -326,7 +326,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 10
-  m_LinearDrag: 10
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -420,7 +420,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  thrownCooldown: 0
+  yeetVelocity: {x: 0, y: 0}
+  yeetPos: {x: 0, y: 0}
+  yeeted: 0
+  thrownCooldown: 3
+  throwElapsed: 0
   holder: {fileID: 0}
   heldState: 2
   holdingCharacterController: {fileID: 0}
