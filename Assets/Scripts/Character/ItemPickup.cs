@@ -11,7 +11,7 @@ namespace Scripts.Character
 
         private float pickupCooldown = 0.0f;
 
-        public GameObject focusedPlayer;
+        public ObjectPickupRadius focusedPickup;
 
         public bool DoneWithCooldown()
         {
@@ -72,10 +72,10 @@ namespace Scripts.Character
         {
             if (isLocalPlayer)
             {
-                var playerPickup = other.gameObject.GetComponent<PlayerPickupRadius>();
-                if (playerPickup != null && playerPickup.pickupReference == focusedPlayer)
+                var playerPickup = other.gameObject.GetComponent<ObjectPickupRadius>();
+                if (playerPickup != null && playerPickup == focusedPickup)
                 {
-                    focusedPlayer = null;
+                    focusedPickup = null;
                 }
             }
         }
@@ -96,10 +96,10 @@ namespace Scripts.Character
                         CmdPickupItem(other.GetComponent<PickupableRadius>().pickupReference.gameObject);
                     }
                 }
-                var playerPickup = other.gameObject.GetComponent<PlayerPickupRadius>();
-                if (other.gameObject.GetComponent<PlayerPickupRadius>() != null)
+                var focusPickup = other.gameObject.GetComponent<ObjectPickupRadius>();
+                if (other.gameObject.GetComponent<ObjectPickupRadius>() != null)
                 {
-                    focusedPlayer = playerPickup.pickupReference;
+                    focusedPickup = focusPickup;
                 }
             }
         }

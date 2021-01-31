@@ -3,8 +3,10 @@ using UnityEngine;
 
 namespace Scripts.Items
 {
-    public class PlayerPickupRadius : MonoBehaviour
+    public class ObjectPickupRadius : MonoBehaviour
     {
+        public Item pickupType;
+
         public GameObject pickupReference;
     }
 }
