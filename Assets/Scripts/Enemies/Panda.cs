@@ -5,7 +5,7 @@ using Scripts.Animals;
 
 public class Panda : Animal
 {
-    protected override void Start()
+    public override void Start()
     {
         species = AnimalSpecies.Panda;
         base.Start();

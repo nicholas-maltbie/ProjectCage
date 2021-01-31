@@ -26,27 +26,31 @@ namespace Scripts.Animals
 public abstract class Animal : NetworkBehaviour
 {
     // Start is called before the first frame update
-
+    [SyncVar]
     public GameObject target;
-
+    [SyncVar]
     public GameObject scoreCredit;
-
+    [SyncVar]
     public Scripts.Items.Item favoriteFood;
 
     // This variable denotes whether a sprite is drawn facing Right or Left by default.
+    [SyncVar]
     public Direction initialFacingDirection = Direction.Left;
     private NavMeshAgent agent;
     private Animator animator;
     private bool isFacingRight;
 
+    [SyncVar]
     public AnimalSpecies species;
+    [SyncVar]
     public int pointValue = 1;
 
     protected ScoreManager scoreManager;
 
+    [SyncVar]
     public EnemyNest nest;
 
-    protected virtual void Start()
+    public virtual void Start()
     {
         // Set some variables
         agent = GetComponent<NavMeshAgent>();

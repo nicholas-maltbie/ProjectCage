@@ -5,14 +5,13 @@ using Mirror;
 
 public class EnemyNest : Spawner
 {
+    [SyncVar]
     public int maxEnemies;
-    public GameObject[] spawnedEnemies;
-
     public float radius = 1;
 
     private void Start() 
     {
-        if(isServer)
+        if (isServer)
         {
             for (int i = 0; i < maxEnemies; i++)
             {
@@ -33,22 +32,18 @@ public class EnemyNest : Spawner
         var yVectorComponent = Random.value * 2 - 1;
         var vectorMagnitude = (Random.value * 2 - 1) * radius; 
         Vector2 spawnLocation = (Vector2)transform.position + new Vector2(xVectorComponent, yVectorComponent)*vectorMagnitude;
-        var obj = SpawnObject(spawnLocation);
+        SpawnObject(spawnLocation);
         
     }
 
-    public override GameObject SpawnObject(Vector2 position)
+    public override void SpawnObject(Vector2 position)
     {
         if(isServer)
         {
-            var obj = Instantiate(spawnPrefab, position, Quaternion.identity);
-            if(obj.GetComponent<Animal>())
-            {
-                obj.GetComponent<Animal>().nest = this;
-            }
+            var obj = Instantiate(spawnPrefab, position, Quaternion.Euler(0,0,0));
+            obj.GetComponent<Animal>().nest = this;
+            obj.GetComponent<Animal>().Start(); // This prevents the navmesh from forcing weird angular turns.
             NetworkServer.Spawn(obj);
-            return obj;
         }
-        return null;
     }
 }
