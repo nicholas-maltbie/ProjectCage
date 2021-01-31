@@ -8,7 +8,7 @@ public class EnclosureManager : NetworkBehaviour
     public Enclosure penguinEnclosure, pandaEnclosure, lionEnclosure;
     public bool arePenguinsFound = false, arePandasFound = false, areLionsFound = false;
 
-    private void Start() 
+    private void Start()
     {
         penguinEnclosure.numberOfSpecies = FindObjectsOfType<Penguin>().Length;
         penguinEnclosure.enclosureSpecies = AnimalSpecies.Penguin;
@@ -31,9 +31,9 @@ public class EnclosureManager : NetworkBehaviour
                 areLionsFound = status;
                 break;
         }
-        if(isServer)
+        if (isServer)
         {
-            if(CheckVictoryState())
+            if (CheckVictoryState())
             {
                 print("Win!");
             }
