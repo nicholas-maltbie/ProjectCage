@@ -23,12 +23,6 @@ namespace Scripts.Character
         [SerializeField]
         public TerrainSoundModifier[] currentSounds;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            
-        }
-
         // Update is called every frame
         void Update()
         {
