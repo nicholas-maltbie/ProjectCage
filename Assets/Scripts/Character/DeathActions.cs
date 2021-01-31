@@ -24,16 +24,25 @@ namespace Scripts.Character
 
         public bool IsAlive => deathState == PlayerDeath.Alive;
 
-        public void KillCharacter()
+        [Command]
+        public void CmdKillCharacter()
         {
-            // Drop what we're carrying
-            GetComponent<HoldObject>().CmdDropThings();
-            // Play a death sound effect
-            RpcPlayDeathSound();
             // Increment death Counter
             TeamDeathCounter.Instance.IncrementDeaths();
             // Kill the player... for now
-            StartCoroutine(PlayerDeathTimer());
+            // Play a death sound effect
+            RpcPlayDeathSound();
+        }
+
+        public void KillCharacter()
+        {
+            if (isLocalPlayer)
+            {
+                // Drop what we're carrying
+                GetComponent<HoldObject>().CmdDropThings();
+                StartCoroutine(PlayerDeathTimer());
+                CmdKillCharacter();
+            }
         }
 
         public IEnumerator PlayerDeathTimer()
