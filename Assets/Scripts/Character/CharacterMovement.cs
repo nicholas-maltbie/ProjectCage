@@ -21,7 +21,7 @@ namespace Scripts.Character
 
         public void YeetPlayer(Vector2 newVelocity, Vector2 newPos)
         {
-            UnityEngine.Debug.Log($"Command to yeet player {newVelocity}, {newPos}");
+            // UnityEngine.Debug.Log($"Command to yeet player {newVelocity}, {newPos}");
             yeetVelocity = newVelocity;
             yeetPos = newPos;
             yeeted = true;

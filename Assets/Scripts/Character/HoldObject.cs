@@ -259,7 +259,7 @@ namespace Scripts.Character
             }
             else if (Input.GetButtonDown("Drop") && itemPickup.focusedPickup != null && itemPickup.focusedPickup.pickupType == Item.Player)
             {
-                CmdPickupAnotherPlayer(itemPickup.focusedPickup.gameObject);
+                CmdPickupAnotherPlayer(itemPickup.focusedPickup.pickupReference);
             }
             else if (Input.GetButtonDown("Drop") && itemPickup.focusedPickup != null && ItemState.IsThrowableItem(itemPickup.focusedPickup.pickupType))
             {
