@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
 using Mirror;
+using Scripts.Character;
 using Scripts.Animals;
+using Scripts.Items;
+
 public enum Direction
 {
     Right = 1,
@@ -62,7 +65,7 @@ public abstract class Animal : NetworkBehaviour
             animator.SetFloat("MoveX", agent.velocity.x);
             SetSpriteFlip(agent.velocity.x);
             animator.SetFloat("MoveY", agent.velocity.y);
-            var isWalking = agent.remainingDistance > 0.1 ? true : false;
+            var isWalking = agent.remainingDistance > 0.05f ? true : false;
             animator.SetBool("Walking", isWalking);
         }
     }
@@ -95,5 +98,28 @@ public abstract class Animal : NetworkBehaviour
             shouldFlip = true;
         }
         sr.flipX = shouldFlip;
+    }
+    protected virtual void OnTriggerStay2D(Collider2D other)
+    {
+        var isPlayer = other.CompareTag("Player");
+        var isPlayerHoldingFood = isPlayer && other.GetComponent<HoldObject>().heldItem == favoriteFood;
+        var isFoodItem = other.CompareTag("Food Item") && other.GetComponent<ItemState>().item == favoriteFood;
+        if (isPlayerHoldingFood || isFoodItem)
+        {
+            target = other.gameObject;
+        }
+        else if (isPlayer && other.gameObject == target)
+        {
+            // Player was holding food, but threw it and shouldn't be followed anymore.
+            target = null;
+        }
+
+    }
+    protected virtual void OnTriggerExit2D(Collider2D other)
+    {
+        if (target == other.gameObject)
+        {
+            target = null;
+        }
     }
 }
