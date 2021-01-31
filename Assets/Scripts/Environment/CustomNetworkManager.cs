@@ -10,7 +10,7 @@ namespace Scripts.Environment
     {
         public override void OnServerDisconnect(NetworkConnection conn)
         {
-            foreach(HoldObject hold in GameObject.FindObjectsOfType<HoldObject>())
+            foreach (HoldObject hold in GameObject.FindObjectsOfType<HoldObject>())
             {
                 NetworkIdentity identity = hold.gameObject.GetComponent<NetworkIdentity>();
                 if (identity.netId == conn.identity.netId)

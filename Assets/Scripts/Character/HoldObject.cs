@@ -148,7 +148,7 @@ namespace Scripts.Character
             Vector2 targetPosition = GetThrowPosition(throwDir);
 
             otherPlayer.GetComponent<CharacterMovement>().YeetPlayer(GetThrownVelocity(throwDir, playerThrowSpeed), targetPosition);
-            
+
             if (!otherPlayer.GetComponent<NetworkIdentity>().isLocalPlayer)
             {
                 otherPlayer.GetComponent<CharacterMovement>().RpcYeetPlayer(GetThrownVelocity(throwDir, playerThrowSpeed), targetPosition);
