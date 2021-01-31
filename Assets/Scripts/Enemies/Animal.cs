@@ -144,12 +144,12 @@ public abstract class Animal : NetworkBehaviour
 
     private void OnDestroy()
     {
-        
+
         if (nest)
         {
             nest.NestSpawn();
         }
-        
+
         if (scoreCredit)
         {
             scoreManager.AddScore(scoreCredit, pointValue);

@@ -9,7 +9,7 @@ public class EnemyNest : Spawner
     public int maxEnemies;
     public float radius = 1;
 
-    private void Start() 
+    private void Start()
     {
         if (isServer)
         {
@@ -30,17 +30,17 @@ public class EnemyNest : Spawner
     {
         var xVectorComponent = Random.value * 2 - 1;
         var yVectorComponent = Random.value * 2 - 1;
-        var vectorMagnitude = (Random.value * 2 - 1) * radius; 
-        Vector2 spawnLocation = (Vector2)transform.position + new Vector2(xVectorComponent, yVectorComponent)*vectorMagnitude;
+        var vectorMagnitude = (Random.value * 2 - 1) * radius;
+        Vector2 spawnLocation = (Vector2)transform.position + new Vector2(xVectorComponent, yVectorComponent) * vectorMagnitude;
         SpawnObject(spawnLocation);
-        
+
     }
 
     public override void SpawnObject(Vector2 position)
     {
-        if(isServer)
+        if (isServer)
         {
-            var obj = Instantiate(spawnPrefab, position, Quaternion.Euler(0,0,0));
+            var obj = Instantiate(spawnPrefab, position, Quaternion.Euler(0, 0, 0));
             obj.GetComponent<Animal>().nest = this;
             obj.GetComponent<Animal>().Start(); // This prevents the navmesh from forcing weird angular turns.
             NetworkServer.Spawn(obj);

@@ -6,10 +6,10 @@ using Mirror;
 public abstract class Spawner : NetworkBehaviour
 {
     public GameObject spawnPrefab;
-    
+
     public virtual void SpawnObject(Vector2 position)
     {
-        if(isServer)
+        if (isServer)
         {
             var obj = Instantiate(spawnPrefab, position, Quaternion.identity);
             NetworkServer.Spawn(obj);
