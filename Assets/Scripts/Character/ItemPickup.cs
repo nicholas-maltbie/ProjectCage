@@ -83,7 +83,7 @@ namespace Scripts.Character
         private void TriggerEnterOrStay(Collider2D other)
         {
             var identity = other.GetComponent<NetworkIdentity>();
-            if (isLocalPlayer)
+            if (isLocalPlayer && GetComponent<DeathActions>().IsAlive)
             {
                 if (identity != null && identity.isActiveAndEnabled && GetComponent<HoldObject>().heldItem == Item.None)
                 {

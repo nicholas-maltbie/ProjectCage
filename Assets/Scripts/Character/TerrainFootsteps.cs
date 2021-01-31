@@ -27,7 +27,7 @@ namespace Scripts.Character
         void Update()
         {
             timeElapsed += Time.deltaTime;
-            if (GetComponent<CharacterMovement>().IsMoving() && timeElapsed >= audioInterval)
+            if (GetComponent<DeathActions>().IsAlive && GetComponent<CharacterMovement>().IsMoving() && timeElapsed >= audioInterval)
             {
                 audioSource.clip = currentSound;
                 audioSource.Play();
