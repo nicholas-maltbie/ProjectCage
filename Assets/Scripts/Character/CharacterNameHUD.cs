@@ -26,7 +26,7 @@ namespace Scripts.Character
 
         public void ClearAllNames()
         {
-            foreach(uint key in characterNameTagMap.Keys)
+            foreach (uint key in characterNameTagMap.Keys)
             {
                 RemoveName(key);
             }
@@ -34,7 +34,7 @@ namespace Scripts.Character
 
         public void RemoveName(uint playerId)
         {
-            if(characterNameTagMap.TryGetValue(playerId, out Text nametag))
+            if (characterNameTagMap.TryGetValue(playerId, out Text nametag))
             {
                 GameObject.Destroy(nametag);
                 characterNameTagMap.Remove(playerId);
