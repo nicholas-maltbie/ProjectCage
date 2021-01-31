@@ -286,9 +286,8 @@ GameObject:
   - component: {fileID: 281299507673297783}
   - component: {fileID: 7407842451782846274}
   - component: {fileID: -259793815591245304}
-  - component: {fileID: 7515537036792353636}
-  - component: {fileID: 8125252358849117573}
-  - component: {fileID: -6361558171839393708}
+  - component: {fileID: -6370328999240504243}
+  - component: {fileID: 2213435203631878857}
   m_Layer: 8
   m_Name: DefaultPlayer
   m_TagString: Player
@@ -538,7 +537,7 @@ MonoBehaviour:
   syncInterval: 0.1
   pickupResetTime: 0.1
   focusedPlayer: {fileID: 0}
---- !u!114 &7515537036792353636
+--- !u!114 &-6370328999240504243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -547,13 +546,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6641370716391044434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16a4335e052946545a131ae7017a4c7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 73f66b7fba6e99540ba78c21cb3cca86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSpeed: 0
-  inWaterSpeed: 2.5
-  inWaterPercentage: 0.75
---- !u!114 &-6361558171839393708
+--- !u!114 &2213435203631878857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -562,9 +558,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6641370716391044434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac47685962434b04f9e535c129b107fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 3292a381293a2744b97580ba65d7fef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTerrain: 
   originalSpeed: 0
-  onPathSpeed: 100
-  onPathPercentage: 1.5
+  speedModifiers:
+  - speedModifier: 0.7
+    terrainTag: Water
+  - speedModifier: 1.25
+    terrainTag: Path
