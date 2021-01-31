@@ -40,8 +40,7 @@ namespace Scripts.Character
             StartCoroutine(ChangeItem(newItem));
         }
 
-        [Command]
-        public void CmdDropThings()
+        public void DropThings()
         {
             if (ItemState.IsThrowableItem(this.heldItem))
             {
@@ -49,8 +48,14 @@ namespace Scripts.Character
             }
             if (this.heldItem == Item.Player)
             {
-                CmdYeetPlayer(this.heldPlayer);
+                YeetPlayer(this.heldPlayer);
             }
+        }
+
+        [Command]
+        public void CmdDropThings()
+        {
+            DropThings();
         }
 
         public Vector2 GetThrowDirection()
@@ -64,17 +69,13 @@ namespace Scripts.Character
             return throwDir;
         }
 
-        public Vector2 GetThrowPosition(Vector2 throwDir)
+        public Vector2 GetThrowPosition(Vector2 throwDir, float distMod = 1.0f)
         {
             Vector2 targetPosition = transform.position + new Vector3(throwDir.x, throwDir.y);
+            Physics2D.queriesStartInColliders = false;
+            Physics2D.queriesHitTriggers = false;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, throwDir, throwDir.magnitude, ~(1 << LayerMask.NameToLayer("Player")));
-
-            if (hit)
-            {
-                targetPosition = transform.position;
-            }
-
-            return targetPosition;
+            return hit ? hit.point : targetPosition;
         }
 
         public Vector2 GetThrownVelocity(Vector2 throwDir, float speedMultiplier)
@@ -135,8 +136,6 @@ namespace Scripts.Character
         public void YeetPlayer(GameObject otherPlayer)
         {
             CharacterMovement otherMovement = otherPlayer.GetComponent<CharacterMovement>();
-            // Yeet the other player, set their state to thrown
-            otherMovement.thrownCooldown = 3.0f;
             otherMovement.heldState = CharacterHeld.Thrown;
             // Reset their held information
             otherMovement.holder = null;
@@ -148,12 +147,11 @@ namespace Scripts.Character
             Vector2 throwDir = GetThrowDirection();
             Vector2 targetPosition = GetThrowPosition(throwDir);
 
-            otherPlayer.transform.position = targetPosition;
+            otherPlayer.GetComponent<CharacterMovement>().YeetPlayer(GetThrownVelocity(throwDir, playerThrowSpeed), targetPosition);
 
-            Rigidbody2D thrown = otherPlayer.GetComponent<Rigidbody2D>();
-            if (thrown != null)
+            if (!otherPlayer.GetComponent<NetworkIdentity>().isLocalPlayer)
             {
-                thrown.velocity = GetThrownVelocity(throwDir, playerThrowSpeed);
+                otherPlayer.GetComponent<CharacterMovement>().RpcYeetPlayer(GetThrownVelocity(throwDir, playerThrowSpeed), targetPosition);
             }
         }
 
