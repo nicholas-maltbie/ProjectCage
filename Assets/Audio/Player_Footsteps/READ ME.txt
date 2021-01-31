@@ -1,0 +1,19 @@
+HOW TO READ FILES for NAME CHAIN
+
+TERRAIN 
+	PLAYER
+		FOOTSTEPS
+			LEFT (L_insert)
+			RIGHT (R_insert)				
+				GRASS	
+				DEAD GRASS (D-GRASS)
+				DIRT
+				SIDEWALK/CONCRETE
+				SNOW		
+					WALK
+					RUN
+						LIGHT
+						HEAVY	
+
+*** NOTES ***
+Ignore listed, numbers, "intrument", software file export default. 
