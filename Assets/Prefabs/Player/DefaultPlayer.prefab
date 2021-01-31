@@ -287,6 +287,8 @@ GameObject:
   - component: {fileID: 7407842451782846274}
   - component: {fileID: -259793815591245304}
   - component: {fileID: 7515537036792353636}
+  - component: {fileID: 8125252358849117573}
+  - component: {fileID: -6361558171839393708}
   m_Layer: 8
   m_Name: DefaultPlayer
   m_TagString: Player
@@ -545,6 +547,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 6641370716391044434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f66b7fba6e99540ba78c21cb3cca86, type: 3}
+  m_Script: {fileID: 11500000, guid: 16a4335e052946545a131ae7017a4c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSpeed: 0
+  inWaterSpeed: 2.5
+  inWaterPercentage: 0.75
+--- !u!114 &-6361558171839393708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6641370716391044434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac47685962434b04f9e535c129b107fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalSpeed: 0
+  onPathSpeed: 100
+  onPathPercentage: 1.5
