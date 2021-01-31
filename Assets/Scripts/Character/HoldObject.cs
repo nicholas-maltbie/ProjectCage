@@ -67,14 +67,10 @@ namespace Scripts.Character
         public Vector2 GetThrowPosition(Vector2 throwDir)
         {
             Vector2 targetPosition = transform.position + new Vector3(throwDir.x, throwDir.y);
+            Physics2D.queriesStartInColliders = false;
+            Physics2D.queriesHitTriggers = false;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, throwDir, throwDir.magnitude, ~(1 << LayerMask.NameToLayer("Player")));
-
-            if (hit)
-            {
-                targetPosition = transform.position;
-            }
-
-            return targetPosition;
+            return hit ? hit.point : targetPosition;
         }
 
         public Vector2 GetThrownVelocity(Vector2 throwDir, float speedMultiplier)
