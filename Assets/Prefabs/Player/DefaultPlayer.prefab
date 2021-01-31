@@ -426,6 +426,7 @@ MonoBehaviour:
   yeetPos: {x: 0, y: 0}
   yeeted: 0
   thrownCooldown: 3
+  minThrow: 1
   throwElapsed: 0
   holder: {fileID: 0}
   heldState: 2
@@ -589,8 +590,8 @@ MonoBehaviour:
   currentTerrain: 
   originalSound: {fileID: 8300000, guid: 905bbdb155b3d254fb4de2142c1d3492, type: 3}
   currentSound: {fileID: 0}
-  currentSpeed: 0
   audioSource: {fileID: -4533897295956724131}
+  audioInterval: 0.3
   currentSounds:
   - terrainSound: {fileID: 8300000, guid: 39ee04658f6827d4980a8f4e297dfcf2, type: 3}
     terrainTag: Water
@@ -605,7 +606,8 @@ AudioSource:
   m_GameObject: {fileID: 6641370716391044434}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8685196777431995778, guid: 37f41eaca9f72914ab5343e59d1e5f44,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
