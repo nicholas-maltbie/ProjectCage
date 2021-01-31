@@ -15,7 +15,20 @@ public class ScoreManager : NetworkBehaviour
             if (targetPlayerScore.score >= maxScore)
             {
                 print("A player has won!");
+                StartCoroutine(InitializeGameReset());
             }
         }
+    }
+
+    public IEnumerator InitializeGameReset()
+    {
+        yield return new WaitForSeconds(3);
+        RestartGame();
+    }
+
+    public void RestartGame()
+    {
+        var nm = FindObjectOfType<NetworkManager>();
+        nm.ServerChangeScene("FirstZoo");
     }
 }

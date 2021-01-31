@@ -28,7 +28,6 @@ public class Enclosure : NetworkBehaviour
     {
         if (isServer && IsCorrectTarget(other))
         {
-            print("Murder");
             NetworkServer.Destroy(other.gameObject);
 
             if (numberOfSpecies >= numberCaptured)
@@ -38,26 +37,4 @@ public class Enclosure : NetworkBehaviour
 
         }
     }
-
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (isServer && IsCorrectTarget(other))
-    //     {
-    //         numberCaptured += 1;
-    //         if (numberOfSpecies >= numberCaptured)
-    //         {
-    //             enclosureManager.UpdateCaptureStatus(enclosureSpecies, true);
-    //         }
-
-    //     }
-    // }
-    // private void OnTriggerExit2D(Collider2D other)
-    // {
-    //     if (isServer && IsCorrectTarget(other))
-    //     {
-    //         numberCaptured -= 1;
-    //         enclosureManager.UpdateCaptureStatus(enclosureSpecies, false);
-
-    //     }
-    // }
 }

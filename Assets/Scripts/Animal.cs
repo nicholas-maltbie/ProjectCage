@@ -140,7 +140,6 @@ public abstract class Animal : NetworkBehaviour
     {
         if (scoreCredit)
         {
-            print("Points!");
             scoreManager.AddScore(scoreCredit, pointValue);
         }
     }
