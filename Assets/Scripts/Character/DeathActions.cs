@@ -32,6 +32,7 @@ namespace Scripts.Character
             // Kill the player... for now
             // Play a death sound effect
             RpcPlayDeathSound();
+            StartCoroutine(PlayerDeathServerActions());
         }
 
         public void KillCharacter()
@@ -45,19 +46,28 @@ namespace Scripts.Character
             }
         }
 
-        public IEnumerator PlayerDeathTimer()
+        public IEnumerator PlayerDeathServerActions()
         {
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GameObject deathSplatterInstance = Instantiate(deathSplatter);
             deathSplatterInstance.transform.position = transform.position;
             NetworkServer.Spawn(deathSplatterInstance);
             deathState = PlayerDeath.Dead;
             yield return new WaitForSeconds(deathTimer);
             deathState = PlayerDeath.Alive;
+            NetworkServer.Destroy(deathSplatterInstance);
+        }
+
+        public IEnumerator PlayerDeathTimer()
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().isKinematic = true;
+            deathState = PlayerDeath.Dead;
+            yield return new WaitForSeconds(deathTimer);
+            deathState = PlayerDeath.Alive;
             // Teleport back to a spawn location
             Transform teleport = GameObject.FindObjectOfType<NetworkManager>().GetStartPosition();
             gameObject.transform.position = teleport.position;
-            NetworkServer.Destroy(deathSplatterInstance);
+            GetComponent<Rigidbody2D>().isKinematic = false;
         }
 
         [ClientRpc]
