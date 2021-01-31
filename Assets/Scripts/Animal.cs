@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
 using Mirror;
+using Scripts.Animals;
+    public enum Direction
+    {
+        Right = 1,
 
-public enum Direction
+        Left = -1
+    }
+
+namespace Scripts.Animals
 {
-    Right = 1,
-
-    Left = -1
+    public enum AnimalSpecies
+    {
+        Penguin = 1,
+        Panda = 2,
+        Lion = 3
+    }
 }
 public abstract class Animal : NetworkBehaviour
 {
@@ -24,12 +34,17 @@ public abstract class Animal : NetworkBehaviour
     private Animator animator;
     private bool isFacingRight;
 
+    public AnimalSpecies species;
+
     protected virtual void Start()
     {
+        // Set some variables
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        // Tell enclosure that this animal exists.
     }
 
     // Update is called once per frame
