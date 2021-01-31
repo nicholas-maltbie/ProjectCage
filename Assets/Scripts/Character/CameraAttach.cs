@@ -21,8 +21,11 @@ namespace Scripts.Character
         {
             if (isLocalPlayer)
             {
-                Camera.main.transform.parent = null;
-                Camera.main.transform.position = new Vector3(0, 0, Camera.main.transform.position.z);
+                if(Camera.main)
+                {
+                    Camera.main.transform.parent = null;
+                    Camera.main.transform.position = new Vector3(0, 0, Camera.main.transform.position.z);
+                }
             }
         }
     }

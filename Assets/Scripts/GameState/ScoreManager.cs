@@ -12,7 +12,6 @@ public class ScoreManager : NetworkBehaviour
         {
             var targetPlayerScore = player.GetComponent<PlayerScore>();
             targetPlayerScore.score += points;
-            targetPlayerScore.ModifyScore(points);
             if (targetPlayerScore.score >= maxScore)
             {
                 print("A player has won!");
@@ -23,7 +22,7 @@ public class ScoreManager : NetworkBehaviour
 
     public IEnumerator InitializeGameReset(GameObject player)
     {
-        DisplayWinner(player.name);
+        RpcDisplayWinner(player.name);
         yield return new WaitForSeconds(3);
         RestartGame();
     }
@@ -33,9 +32,9 @@ public class ScoreManager : NetworkBehaviour
         var nm = FindObjectOfType<NetworkManager>();
         nm.ServerChangeScene("FirstZoo");
     }
-
+    
     [ClientRpc]
-    public void DisplayWinner(string winnerName)
+    public void RpcDisplayWinner(string winnerName)
     {
         var textObj = FindObjectOfType<ScoreTrackerText>();
         textObj.DisplayWinner(winnerName);

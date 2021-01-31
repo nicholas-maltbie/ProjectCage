@@ -14,17 +14,22 @@ public class PlayerScore : NetworkBehaviour
 
     private void Start() 
     {
-        if(isLocalPlayer)
+        if(isClient)
         {
             stt = FindObjectOfType<ScoreTrackerText>();
         }
     }
-
-    public void ModifyScore(int change)
+    
+    private void FixedUpdate() 
     {
         if(isLocalPlayer)
         {
             stt.UpdateScoreUI(score);
         }
+    }
+    
+    public void RpcDisplayWinnerUI(string player)
+    {
+        stt.DisplayWinner(player);
     }
 }

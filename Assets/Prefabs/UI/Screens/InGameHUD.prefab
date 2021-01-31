@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1635543068331526403}
   - component: {fileID: 7548764134440683080}
   - component: {fileID: 3806959837695792773}
+  - component: {fileID: 2180457431716911543}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -78,6 +79,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
+--- !u!114 &2180457431716911543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587231314238768360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &3387064055984664766
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +106,7 @@ GameObject:
   - component: {fileID: 3220466466144647072}
   - component: {fileID: 619545149353271530}
   - component: {fileID: 4772621050874628255}
+  - component: {fileID: 8295239600983930058}
   m_Layer: 5
   m_Name: Winning Player
   m_TagString: Untagged
@@ -156,6 +174,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &8295239600983930058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387064055984664766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &6101108449083475876
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +204,7 @@ GameObject:
   - component: {fileID: 6101108449083475883}
   - component: {fileID: 1441779521130494488}
   - component: {fileID: 8606255850858612341}
+  - component: {fileID: 6439709827638144960}
   m_Layer: 5
   m_Name: InGameHUD
   m_TagString: Untagged
@@ -287,3 +322,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 3806959837695792773}
   winnerDisplayText: {fileID: 4772621050874628255}
+--- !u!114 &6439709827638144960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6101108449083475876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
