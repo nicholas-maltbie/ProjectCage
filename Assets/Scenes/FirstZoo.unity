@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -20136,30 +20136,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 979962972, guid: bf4796d2f90f044419da6cd6340374d0, type: 3}
-      propertyPath: spawnPrefabs.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 979962972, guid: bf4796d2f90f044419da6cd6340374d0, type: 3}
-      propertyPath: spawnPrefabs.Array.data[4]
-      value: 
-      objectReference: {fileID: 8647426001240235812, guid: 741192aeeed405349a7c99a7ec3c1626,
-        type: 3}
-    - target: {fileID: 979962972, guid: bf4796d2f90f044419da6cd6340374d0, type: 3}
-      propertyPath: spawnPrefabs.Array.data[5]
-      value: 
-      objectReference: {fileID: 8647426001240235812, guid: 291cc5168fad3024b8c07dc45b4603b1,
-        type: 3}
-    - target: {fileID: 979962972, guid: bf4796d2f90f044419da6cd6340374d0, type: 3}
-      propertyPath: spawnPrefabs.Array.data[6]
-      value: 
-      objectReference: {fileID: 112526880784403841, guid: 9b821b448a33d5c4db33062ad3a43f95,
-        type: 3}
-    - target: {fileID: 979962972, guid: bf4796d2f90f044419da6cd6340374d0, type: 3}
-      propertyPath: spawnPrefabs.Array.data[7]
-      value: 
-      objectReference: {fileID: 8767966704592467214, guid: a05a7e84ad0970c4cae740427d642e9e,
-        type: 3}
     - target: {fileID: 1703098402463580576, guid: bf4796d2f90f044419da6cd6340374d0,
         type: 3}
       propertyPath: m_Name
@@ -20220,42 +20196,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1703098402463580577, guid: bf4796d2f90f044419da6cd6340374d0, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4796d2f90f044419da6cd6340374d0, type: 3}
---- !u!1 &1241343912 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1703098402463580576, guid: bf4796d2f90f044419da6cd6340374d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1241343911}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1241343913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241343912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0110f245bfcfc7d459681f7bd9ebc590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  port: 7777
-  maxMessageSize: 16384
-  handshakeMaxSize: 3000
-  noDelay: 1
-  sendTimeout: 5000
-  receiveTimeout: 20000
-  serverMaxMessagesPerTick: 10000
-  clientMaxMessagesPerTick: 1000
-  batchSend: 1
-  waitBeforeSend: 0
-  clientUseWss: 0
-  sslEnabled: 0
-  sslCertJson: ./cert.json
-  sslProtocols: 3072
-  _logLevels: 0
 --- !u!4 &1242957903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7603509422882907425, guid: 5f2291a11b0d38b4a99f607cc1fcebff,
