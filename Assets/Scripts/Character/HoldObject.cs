@@ -2,11 +2,14 @@ using Mirror;
 using UnityEngine;
 using Scripts.Items;
 using System.Collections;
+using Scripts.Environment;
 
 namespace Scripts.Character
 {
     public class HoldObject : NetworkBehaviour
     {
+        public SFXPlayer soundEffectsPlayer;
+
         public ItemLibrary worldItemLibrary;
 
         public ItemLibrary heldItemLibrary;
@@ -83,8 +86,15 @@ namespace Scripts.Character
             return throwDir * speedMultiplier + playerRigidbody.velocity;
         }
 
+        [ClientRpc]
+        public void RpcYeetSound()
+        {
+            soundEffectsPlayer.PlayYeetSound();
+        }
+
         public void YeetItem(Item yeet)
         {
+            RpcYeetSound();
             GameObject yeetedPrefab = worldItemLibrary.GetItem(yeet);
             this.heldItem = Item.None;
             Vector2 throwDir = GetThrowDirection();
@@ -115,6 +125,14 @@ namespace Scripts.Character
                 yield return null;
             }
 
+            bool beingPickedUp = item == Item.Player && heldPlayerId == NetworkClient.connection.identity.netId;
+            bool shouldPlaySFX = beingPickedUp || isLocalPlayer;
+            // Item sound effect
+            if (shouldPlaySFX && item != Item.None)
+            {
+                soundEffectsPlayer.PickupSound();
+            }
+
             if (ItemState.IsThrowableItem(item))
             {
                 Instantiate(heldItemLibrary.GetItem(item), holdingTransform);
@@ -123,7 +141,10 @@ namespace Scripts.Character
             {
                 GameObject heldItem = Instantiate(heldItemLibrary.GetItem(item), holdingTransform);
                 // Link the animating renderer and the normal sprite controller
-                heldItem.GetComponent<HeldCharacterSkin>().linkedCharacter = heldPlayer.GetComponent<CharacterSkin>();
+                if (heldPlayer != null)
+                {
+                    heldItem.GetComponent<HeldCharacterSkin>().linkedCharacter = heldPlayer.GetComponent<CharacterSkin>();
+                }
             }
         }
 
@@ -135,6 +156,7 @@ namespace Scripts.Character
 
         public void YeetPlayer(GameObject otherPlayer)
         {
+            RpcYeetSound();
             CharacterMovement otherMovement = otherPlayer.GetComponent<CharacterMovement>();
             otherMovement.heldState = CharacterHeld.Thrown;
             // Reset their held information
@@ -211,6 +233,10 @@ namespace Scripts.Character
         public void Update()
         {
             if (!isLocalPlayer)
+            {
+                return;
+            }
+            if (!GetComponent<DeathActions>().IsAlive)
             {
                 return;
             }
