@@ -3084,58 +3084,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &979962970 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1703098402463580576, guid: 3b64f63b8cb36d148baf4779a13cc70e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1703098403430960634}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &979962971 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1703098402463580577, guid: 3b64f63b8cb36d148baf4779a13cc70e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1703098403430960634}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979962970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &979962972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979962970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07e0db47fd073784a81dfa0c7d78878f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 1
-  runInBackground: 1
-  autoStartServerBuild: 1
-  showDebugMessages: 0
-  serverTickRate: 60
-  offlineScene: 
-  onlineScene: 
-  transport: {fileID: 979962971}
-  networkAddress: localhost
-  maxConnections: 16
-  disconnectInactiveConnections: 0
-  disconnectInactiveTimeout: 60
-  authenticator: {fileID: 0}
-  playerPrefab: {fileID: 6641370716391044434, guid: 7a828d152b5ec744c85740bc536b1b55,
-    type: 3}
-  autoCreatePlayer: 1
-  playerSpawnMethod: 1
-  spawnPrefabs:
-  - {fileID: 3109514383311896580, guid: 79d882e49324c6a4fb035043555356a1, type: 3}
-  - {fileID: 7389599331503212090, guid: c32c7dc0760132444b9011c3178882c3, type: 3}
-  - {fileID: 1285308464289660304, guid: c588c7eb96ce21e49a8e81993a8536a8, type: 3}
-  - {fileID: 3573704801073380742, guid: d9d3953bee8b6ee4c81c258bd8f456f9, type: 3}
 --- !u!1 &997362312
 GameObject:
   m_ObjectHideFlags: 0
@@ -52143,8 +52091,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1703098402463580582, guid: 3b64f63b8cb36d148baf4779a13cc70e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b64f63b8cb36d148baf4779a13cc70e, type: 3}
 --- !u!1001 &2684118858749682395
 PrefabInstance:

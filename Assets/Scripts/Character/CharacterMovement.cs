@@ -1,5 +1,4 @@
 using Mirror;
-using Mirror.Experimental;
 using UnityEngine;
 
 namespace Scripts.Character
@@ -13,6 +12,25 @@ namespace Scripts.Character
 
     public class CharacterMovement : NetworkBehaviour
     {
+        private Vector2 yeetVelocity;
+
+        private Vector2 yeetPos;
+
+        public bool yeeted;
+
+        public void YeetPlayer(Vector2 newVelocity, Vector2 newPos)
+        {
+            yeeted = true;
+            yeetVelocity = newVelocity;
+            yeetPos = newPos;
+        }
+
+        [ClientRpc]
+        public void RpcYeetPlayer(Vector3 newVelocity, Vector3 newPos)
+        {
+            YeetPlayer(newVelocity, newPos);
+        }
+
         public float thrownCooldown;
 
         [SyncVar]
@@ -39,6 +57,16 @@ namespace Scripts.Character
         [SyncVar]
         public Vector2 lastMovement;
 
+        public void ApplyYeet()
+        {
+            if (yeeted)
+            {
+                transform.position = yeetPos;
+                GetComponent<Rigidbody2D>().velocity = yeetVelocity;
+                yeeted = false;
+            }
+        }
+
         public void OnChangeHeldState(CharacterHeld oldHeld, CharacterHeld newHeld)
         {
             bool colliderEnabled = true;
@@ -50,6 +78,9 @@ namespace Scripts.Character
                     rigidbodyEnabled = true;
                     break;
                 case CharacterHeld.Thrown:
+                    colliderEnabled = true;
+                    rigidbodyEnabled = true;
+                    break;
                 case CharacterHeld.Normal:
                     colliderEnabled = true;
                     rigidbodyEnabled = true;
@@ -128,6 +159,7 @@ namespace Scripts.Character
                 }
                 else if (heldState == CharacterHeld.Thrown)
                 {
+                    ApplyYeet();
                     thrownCooldown -= Time.fixedDeltaTime;
                     if (thrownCooldown <= 0 || body.velocity.magnitude <= stopSlidingSpeed)
                     {

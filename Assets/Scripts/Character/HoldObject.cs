@@ -69,7 +69,7 @@ namespace Scripts.Character
             return throwDir;
         }
 
-        public Vector2 GetThrowPosition(Vector2 throwDir)
+        public Vector2 GetThrowPosition(Vector2 throwDir, float distMod = 1.0f)
         {
             Vector2 targetPosition = transform.position + new Vector3(throwDir.x, throwDir.y);
             Physics2D.queriesStartInColliders = false;
@@ -149,12 +149,11 @@ namespace Scripts.Character
             Vector2 throwDir = GetThrowDirection();
             Vector2 targetPosition = GetThrowPosition(throwDir);
 
-            otherPlayer.transform.position = targetPosition;
-
-            Rigidbody2D thrown = otherPlayer.GetComponent<Rigidbody2D>();
-            if (thrown != null)
+            otherPlayer.GetComponent<CharacterMovement>().YeetPlayer(GetThrownVelocity(throwDir, playerThrowSpeed), targetPosition);
+            
+            if (!otherPlayer.GetComponent<NetworkIdentity>().isLocalPlayer)
             {
-                thrown.velocity = GetThrownVelocity(throwDir, playerThrowSpeed);
+                otherPlayer.GetComponent<CharacterMovement>().RpcYeetPlayer(GetThrownVelocity(throwDir, playerThrowSpeed), targetPosition);
             }
         }
 
