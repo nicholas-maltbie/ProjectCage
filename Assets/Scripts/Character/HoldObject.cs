@@ -40,8 +40,7 @@ namespace Scripts.Character
             StartCoroutine(ChangeItem(newItem));
         }
 
-        [Command]
-        public void CmdDropThings()
+        public void DropThings()
         {
             if (ItemState.IsThrowableItem(this.heldItem))
             {
@@ -49,8 +48,14 @@ namespace Scripts.Character
             }
             if (this.heldItem == Item.Player)
             {
-                CmdYeetPlayer(this.heldPlayer);
+                YeetPlayer(this.heldPlayer);
             }
+        }
+
+        [Command]
+        public void CmdDropThings()
+        {
+            DropThings();
         }
 
         public Vector2 GetThrowDirection()
