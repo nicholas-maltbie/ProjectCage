@@ -4,12 +4,12 @@ using UnityEngine.AI;
 using UnityEngine;
 using Mirror;
 using Scripts.Animals;
-    public enum Direction
-    {
-        Right = 1,
+public enum Direction
+{
+    Right = 1,
 
-        Left = -1
-    }
+    Left = -1
+}
 
 namespace Scripts.Animals
 {
