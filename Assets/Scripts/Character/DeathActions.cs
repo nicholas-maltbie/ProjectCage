@@ -13,6 +13,8 @@ namespace Scripts.Character
 
     public class DeathActions : NetworkBehaviour
     {
+        public GameObject deathSplatter;
+
         [SyncVar]
         public PlayerDeath deathState;
 
@@ -37,12 +39,16 @@ namespace Scripts.Character
         public IEnumerator PlayerDeathTimer()
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GameObject deathSplatterInstance = Instantiate(deathSplatter);
+            deathSplatterInstance.transform.position = transform.position;
+            NetworkServer.Spawn(deathSplatterInstance);
             deathState = PlayerDeath.Dead;
             yield return new WaitForSeconds(deathTimer);
             deathState = PlayerDeath.Alive;
             // Teleport back to a spawn location
             Transform teleport = GameObject.FindObjectOfType<NetworkManager>().GetStartPosition();
             gameObject.transform.position = teleport.position;
+            NetworkServer.Destroy(deathSplatterInstance);
         }
 
         [Command]
