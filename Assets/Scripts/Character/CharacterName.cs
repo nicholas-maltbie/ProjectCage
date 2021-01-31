@@ -10,7 +10,7 @@ namespace Scripts.Character
         public Transform nameTransform;
 
         public Text nameReference;
-        
+
         [SyncVar(hook = nameof(OnChangeName))]
         public string characterName = "Player";
 
@@ -24,6 +24,13 @@ namespace Scripts.Character
             base.OnStartClient();
             nameReference = CharacterNameHUD.Instance.AddName(this);
             nameTransform = nameReference.transform;
+        }
+
+        public override void OnStopClient()
+        {
+            base.OnStopClient();
+            nameTransform = null;
+            CharacterNameHUD.Instance.RemoveName(this.netId);
         }
 
         public override void OnStartLocalPlayer()
