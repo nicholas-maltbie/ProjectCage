@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1486503749201450761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7732974978416608156}
+  - component: {fileID: 48249447695006810}
+  - component: {fileID: 7728733851833678090}
+  m_Layer: 0
+  m_Name: FoodEat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7732974978416608156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486503749201450761}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8767966704592467208}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &48249447695006810
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486503749201450761}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
+--- !u!114 &7728733851833678090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486503749201450761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddbdf9771f0446428640581b77f2134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodEating: {fileID: 4213465694033899488}
 --- !u!1 &8767966704592467214
 GameObject:
   m_ObjectHideFlags: 0
@@ -18,6 +79,7 @@ GameObject:
   - component: {fileID: 8767966704592467213}
   - component: {fileID: 8767966704592467211}
   - component: {fileID: 8767966704592467216}
+  - component: {fileID: 4213465694033899488}
   m_Layer: 0
   m_Name: Lion Enemy
   m_TagString: Untagged
@@ -35,7 +97,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.19, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7732974978416608156}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76,7 +139,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1194549665
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 6827026824616732198, guid: ede4edd04dfe4a840869026da962deab,
     type: 3}
@@ -235,3 +298,21 @@ MonoBehaviour:
   syncInterval: 0.1
   clientAuthority: 0
   animator: {fileID: 8767966704592467221}
+--- !u!114 &4213465694033899488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767966704592467214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84681e4d889801d44b406c48f48472d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  foodEat: 140000001e000000
+  eatTime: 1.5
+  eatElapsed: 0
+  eat: {fileID: 0}
