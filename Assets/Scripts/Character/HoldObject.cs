@@ -44,7 +44,7 @@ namespace Scripts.Character
         {
             if (ItemState.IsThrowableItem(this.heldItem))
             {
-                YeetItem(this.heldItem);
+                YeetItem(this.heldItem, this.gameObject);
             }
             if (this.heldItem == Item.Player)
             {
@@ -83,7 +83,7 @@ namespace Scripts.Character
             return throwDir * speedMultiplier + playerRigidbody.velocity;
         }
 
-        public void YeetItem(Item yeet)
+        public void YeetItem(Item yeet, GameObject scoreCredit)
         {
             GameObject yeetedPrefab = worldItemLibrary.GetItem(yeet);
             this.heldItem = Item.None;
@@ -91,6 +91,9 @@ namespace Scripts.Character
             Vector2 targetPosition = GetThrowPosition(throwDir);
             GameObject spawned = Instantiate(yeetedPrefab, targetPosition, Quaternion.identity);
             Pickupable pickup = spawned.GetComponent<Pickupable>();
+
+            // include credit to player who threw object
+            spawned.GetComponent<ItemState>().scoreCredit = scoreCredit;
 
             pickup.SetCooldown(itemPickupCooldown, this.netId);
             NetworkServer.Spawn(spawned);
@@ -104,7 +107,7 @@ namespace Scripts.Character
         [Command]
         public void CmdYeetItem(Item yeet)
         {
-            YeetItem(yeet);
+            YeetItem(yeet, this.gameObject);
         }
 
         public IEnumerator ChangeItem(Item item)
