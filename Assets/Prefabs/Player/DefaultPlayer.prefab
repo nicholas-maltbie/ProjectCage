@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: -259793815591245304}
   - component: {fileID: 2213435203631878857}
   - component: {fileID: -3990539181525861613}
+  - component: {fileID: 2296317684966543725}
   - component: {fileID: -4533897295956724131}
   - component: {fileID: 2480312689936022499}
   m_Layer: 8
@@ -739,6 +740,21 @@ MonoBehaviour:
     terrainTag: Water
   - terrainSound: {fileID: 8300000, guid: ed5711871c4d4e54f85e43ac2f825659, type: 3}
     terrainTag: Path
+--- !u!114 &2296317684966543725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6641370716391044434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf2fd5f50b42f1418397e9f6654ce36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  score: 0
 --- !u!82 &-4533897295956724131
 AudioSource:
   m_ObjectHideFlags: 0

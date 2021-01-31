@@ -22,5 +22,6 @@ namespace Scripts.Items
         }
 
         public Item item;
+        public GameObject scoreCredit;
     }
 }

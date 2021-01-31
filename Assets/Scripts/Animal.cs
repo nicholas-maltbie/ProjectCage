@@ -29,6 +29,8 @@ public abstract class Animal : NetworkBehaviour
 
     public GameObject target;
 
+    public GameObject scoreCredit;
+
     public Scripts.Items.Item favoriteFood;
 
     // This variable denotes whether a sprite is drawn facing Right or Left by default.
@@ -38,6 +40,9 @@ public abstract class Animal : NetworkBehaviour
     private bool isFacingRight;
 
     public AnimalSpecies species;
+    public int pointValue = 1;
+
+    protected ScoreManager scoreManager;
 
     protected virtual void Start()
     {
@@ -46,7 +51,7 @@ public abstract class Animal : NetworkBehaviour
         animator = GetComponent<Animator>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-
+        scoreManager = FindObjectOfType<ScoreManager>();
         // Tell enclosure that this animal exists.
     }
 
@@ -107,6 +112,14 @@ public abstract class Animal : NetworkBehaviour
         if (isPlayerHoldingFood || isFoodItem)
         {
             target = other.gameObject;
+            if (isPlayerHoldingFood)
+            {
+                scoreCredit = target;
+            }
+            else // is food item
+            {
+                scoreCredit = target.GetComponent<ItemState>().scoreCredit;
+            }
         }
         else if (isPlayer && other.gameObject == target)
         {
@@ -120,6 +133,15 @@ public abstract class Animal : NetworkBehaviour
         if (target == other.gameObject)
         {
             target = null;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (scoreCredit)
+        {
+            print("Points!");
+            scoreManager.AddScore(scoreCredit, pointValue);
         }
     }
 }
