@@ -24,31 +24,50 @@ namespace Scripts.Character
 
         public bool IsAlive => deathState == PlayerDeath.Alive;
 
-        public void KillCharacter()
+        [Command]
+        public void CmdKillCharacter()
         {
-            // Drop what we're carrying
-            GetComponent<HoldObject>().CmdDropThings();
-            // Play a death sound effect
-            RpcPlayDeathSound();
             // Increment death Counter
             TeamDeathCounter.Instance.IncrementDeaths();
             // Kill the player... for now
-            StartCoroutine(PlayerDeathTimer());
+            // Play a death sound effect
+            RpcPlayDeathSound();
+            StartCoroutine(PlayerDeathServerActions());
         }
 
-        public IEnumerator PlayerDeathTimer()
+        public void KillCharacter()
         {
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            if (isLocalPlayer)
+            {
+                // Drop what we're carrying
+                GetComponent<HoldObject>().CmdDropThings();
+                StartCoroutine(PlayerDeathTimer());
+                CmdKillCharacter();
+            }
+        }
+
+        public IEnumerator PlayerDeathServerActions()
+        {
             GameObject deathSplatterInstance = Instantiate(deathSplatter);
             deathSplatterInstance.transform.position = transform.position;
             NetworkServer.Spawn(deathSplatterInstance);
             deathState = PlayerDeath.Dead;
             yield return new WaitForSeconds(deathTimer);
             deathState = PlayerDeath.Alive;
+            NetworkServer.Destroy(deathSplatterInstance);
+        }
+
+        public IEnumerator PlayerDeathTimer()
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().isKinematic = true;
+            deathState = PlayerDeath.Dead;
+            yield return new WaitForSeconds(deathTimer);
+            deathState = PlayerDeath.Alive;
             // Teleport back to a spawn location
             Transform teleport = GameObject.FindObjectOfType<NetworkManager>().GetStartPosition();
             gameObject.transform.position = teleport.position;
-            NetworkServer.Destroy(deathSplatterInstance);
+            GetComponent<Rigidbody2D>().isKinematic = false;
         }
 
         [ClientRpc]
