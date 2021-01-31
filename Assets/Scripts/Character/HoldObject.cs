@@ -136,8 +136,6 @@ namespace Scripts.Character
         public void YeetPlayer(GameObject otherPlayer)
         {
             CharacterMovement otherMovement = otherPlayer.GetComponent<CharacterMovement>();
-            // Yeet the other player, set their state to thrown
-            otherMovement.thrownCooldown = 3.0f;
             otherMovement.heldState = CharacterHeld.Thrown;
             // Reset their held information
             otherMovement.holder = null;

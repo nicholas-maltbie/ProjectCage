@@ -12,17 +12,18 @@ namespace Scripts.Character
 
     public class CharacterMovement : NetworkBehaviour
     {
-        private Vector2 yeetVelocity;
+        public Vector2 yeetVelocity;
 
-        private Vector2 yeetPos;
+        public Vector2 yeetPos;
 
         public bool yeeted;
 
         public void YeetPlayer(Vector2 newVelocity, Vector2 newPos)
         {
-            yeeted = true;
+            UnityEngine.Debug.Log($"Command to yeet player {newVelocity}, {newPos}");
             yeetVelocity = newVelocity;
             yeetPos = newPos;
+            yeeted = true;
         }
 
         [ClientRpc]
@@ -31,7 +32,11 @@ namespace Scripts.Character
             YeetPlayer(newVelocity, newPos);
         }
 
-        public float thrownCooldown;
+        public float thrownCooldown = 3.0f;
+
+        public float minThrow = 1.0f;
+
+        public float throwElapsed = 0.0f;
 
         [SyncVar]
         public GameObject holder;
@@ -134,22 +139,14 @@ namespace Scripts.Character
             {
                 transform.position = holder.GetComponent<HoldObject>().holdingTransform.position;
             }
+            if (heldState == CharacterHeld.Thrown)
+            {
+                ApplyYeet();
+            }
         }
 
         void FixedUpdate()
         {
-            if (isDebugPlayer && isServer)
-            {
-                if (heldState == CharacterHeld.Thrown)
-                {
-                    thrownCooldown -= Time.fixedDeltaTime;
-                    if (thrownCooldown <= 0 || body.velocity.magnitude <= stopSlidingSpeed)
-                    {
-                        this.thrownCooldown = 0;
-                        this.heldState = CharacterHeld.Normal;
-                    }
-                }
-            }
             if (isLocalPlayer)
             {
                 Vector2 movement = new Vector2(horizontal, vertical);
@@ -159,11 +156,10 @@ namespace Scripts.Character
                 }
                 else if (heldState == CharacterHeld.Thrown)
                 {
-                    ApplyYeet();
-                    thrownCooldown -= Time.fixedDeltaTime;
-                    if (thrownCooldown <= 0 || body.velocity.magnitude <= stopSlidingSpeed)
+                    throwElapsed += Time.fixedDeltaTime;
+                    if (throwElapsed >= thrownCooldown || (throwElapsed >= minThrow && body.velocity.magnitude <= stopSlidingSpeed))
                     {
-                        this.thrownCooldown = 0;
+                        this.throwElapsed = 0;
                         CmdSetHeldState(CharacterHeld.Normal);
                     }
                     else
