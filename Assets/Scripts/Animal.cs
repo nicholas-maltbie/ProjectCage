@@ -136,7 +136,7 @@ public abstract class Animal : NetworkBehaviour
         }
     }
 
-    private void OnDestroy() 
+    private void OnDestroy()
     {
         if (scoreCredit)
         {
