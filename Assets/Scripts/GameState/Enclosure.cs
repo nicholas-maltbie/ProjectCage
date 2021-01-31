@@ -28,7 +28,7 @@ public class Enclosure : NetworkBehaviour
     {
         if (isServer && IsCorrectTarget(other))
         {
-            NetworkServer.Destroy(other.gameObject);
+            other.GetComponent<Animal>().Consume();
 
             if (numberOfSpecies >= numberCaptured)
             {

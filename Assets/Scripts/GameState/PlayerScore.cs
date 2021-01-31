@@ -9,4 +9,27 @@ public class PlayerScore : NetworkBehaviour
     string playerName;
     [SyncVar]
     public int score;
+
+    public ScoreTrackerText stt;
+
+    private void Start()
+    {
+        if (isClient)
+        {
+            stt = FindObjectOfType<ScoreTrackerText>();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isLocalPlayer)
+        {
+            stt.UpdateScoreUI(score);
+        }
+    }
+
+    public void RpcDisplayWinnerUI(string player)
+    {
+        stt.DisplayWinner(player);
+    }
 }

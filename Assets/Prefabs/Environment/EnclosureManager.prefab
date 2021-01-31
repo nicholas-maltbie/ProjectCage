@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  maxScore: 40
+  maxScore: 15
 --- !u!114 &8910345017464744955
 MonoBehaviour:
   m_ObjectHideFlags: 0

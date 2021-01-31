@@ -15,13 +15,14 @@ public class ScoreManager : NetworkBehaviour
             if (targetPlayerScore.score >= maxScore)
             {
                 print("A player has won!");
-                StartCoroutine(InitializeGameReset());
+                StartCoroutine(InitializeGameReset(player));
             }
         }
     }
 
-    public IEnumerator InitializeGameReset()
+    public IEnumerator InitializeGameReset(GameObject player)
     {
+        RpcDisplayWinner(player.name);
         yield return new WaitForSeconds(3);
         RestartGame();
     }
@@ -30,5 +31,12 @@ public class ScoreManager : NetworkBehaviour
     {
         var nm = FindObjectOfType<NetworkManager>();
         nm.ServerChangeScene("FirstZoo");
+    }
+
+    [ClientRpc]
+    public void RpcDisplayWinner(string winnerName)
+    {
+        var textObj = FindObjectOfType<ScoreTrackerText>();
+        textObj.DisplayWinner(winnerName);
     }
 }
